@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/home"
+    android:id="@+id/main_graph.xml">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.amanda.poscovid.ui.fragment.home.HomeFragment"
+        tools:layout="@layout/fragment_home" />
+</navigation>

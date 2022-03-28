@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/main_graph.xml"
+    android:id="@+id/nav_graph.xml">
+
+    <include app:graph="@navigation/login_graph" />
+
+    <include app:graph="@navigation/main_graph" />
+
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="com.amanda.poscovid.ui.fragment.SplashScreenFragment"
+        tools:layout="@layout/fragment_splash_screen">
+        <action
+            android:id="@+id/splash_screen_para_main"
+            app:destination="@id/main_graph.xml"
+            app:popUpTo="@id/splashScreen"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/splash_screen_para_login"
+            app:destination="@id/login_graph.xml"
+            app:popUpTo="@id/splashScreen"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+</navigation>

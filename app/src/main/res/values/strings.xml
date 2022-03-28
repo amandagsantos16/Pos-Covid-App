@@ -1,0 +1,24 @@
+<resources>
+
+    <string name="app_name">Pós Covid</string>
+    <string name="bem_vindo">Bem-vindo</string>
+    <string name="bem_vindo_detalhes">Bem vindo ao Pós Covid, você precisa ter um cadastro para ter acesso a todas as nossas funções.</string>
+    <string name="cadastre_se">Cadastre-se</string>
+    <string name="entrar">Entrar</string>
+    <string name="programa_pos_covid">Programa \nPós-Covid</string>
+    <string name="entrar_negrito"><b>Entrar</b></string>
+    <string name="esqueci_minha_senha"><u>Esqueceu sua senha?\nclique aqui</u></string>
+    <string name="senha_negrito"><b>Senha</b></string>
+    <string name="email_negrito"><b>E-mail</b></string>
+    <string name="nome_negrito"><b>Nome completo</b></string>
+    <string name="cadastrar_negrito"><b>Cadastrar</b></string>
+    <string name="recuperar_senha_negrito"><b>Recuperar Senha</b></string>
+    <string name="alterar_senha_negrito"><b>Alterar Senha</b></string>
+    <string name="nova_senha_negrito"><b>Nova senha</b></string>
+    <string name="confirmar_nova_senha_negrito"><b>Confirme a nova senha</b></string>
+    <string name="condigo_de_verificacao_negrito"><b>Código de verificação</b></string>
+    <string name="noticias">Noticias</string>
+    <string name="estudos">Estudos</string>
+    <string name="contaminacao">Contaminação</string>
+
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bem_vindo"
+        android:icon="@drawable/ic_olho"
+        android:title="@string/noticias" />
+
+    <item
+        android:id="@+id/login"
+        android:icon="@drawable/ic_olho"
+        android:title="@string/estudos" />
+
+    <item
+        android:id="@+id/cadastrarLogin"
+        android:icon="@drawable/ic_olho"
+        android:title="@string/contaminacao" />
+
+</menu>

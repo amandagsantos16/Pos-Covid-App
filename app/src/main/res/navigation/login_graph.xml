@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_graph.xml"
+    app:startDestination="@id/bem_vindo">
+
+    <fragment
+        android:id="@+id/bem_vindo"
+        android:name="com.amanda.poscovid.ui.fragment.login.BemVindoFragment"
+        tools:layout="@layout/fragment_bem_vindo" >
+        <action
+            android:id="@+id/bem_vindo_para_login"
+            app:destination="@id/login" />
+        <action
+            android:id="@+id/bem_vindo_para_cadastrarLogin"
+            app:destination="@id/cadastrarLogin" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/login"
+        android:name="com.amanda.poscovid.ui.fragment.login.LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/login_para_recuperarSenha"
+            app:destination="@id/recuperarSenha" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cadastrarLogin"
+        android:name="com.amanda.poscovid.ui.fragment.login.CadastrarLoginFragment"
+        tools:layout="@layout/fragment_cadastrar_login" />
+
+    <fragment
+        android:id="@+id/recuperarSenha"
+        android:name="com.amanda.poscovid.ui.fragment.login.RecuperarSenhaFragment"
+        tools:layout="@layout/fragment_recuperar_senha" >
+        <action
+            android:id="@+id/recuperarSenha_para_alterarSenha"
+            app:destination="@id/alterarSenha" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/alterarSenha"
+        android:name="com.amanda.poscovid.ui.fragment.login.AlterarSenhaFragment"
+        tools:layout="@layout/fragment_alterar_senha" />
+
+
+</navigation>
