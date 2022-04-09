@@ -20,5 +20,16 @@
     <string name="noticias">Noticias</string>
     <string name="estudos">Estudos</string>
     <string name="contaminacao">Contaminação</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="notificacoes">Notificações</string>
+    <string name="sair">Sair</string>
+    <string name="covid_no_mundo">Covid no mundo</string>
+    <string name="ltimos_estudos">Últimos estudos</string>
+    <string name="espa_o_sa_de_mental">Espaço - Saúde mental</string>
 
 </resources>

@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PosCovid">
         <activity
+            android:name=".ui.activity.HomeActivity"
+            android:exported="false"
+            android:label="@string/title_activity_home"
+            android:theme="@style/Theme.PosCovid.NoActionBar" />
+        <activity
             android:name=".ui.activity.MainActivity"
             android:exported="true">
             <intent-filter>

@@ -25,16 +25,15 @@ class HomeFragment : BaseAppFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        configuraBottomNavController()
+
+        binding.saude.setOnClickListener {
+
+        }
+        binding.saude.setOnClickListener {
+
+        }
+        binding.saude.setOnClickListener {
+
+        }
     }
-
-    private fun configuraBottomNavController() {
-        val navController = findNavController(binding.root.getViewById(R.id.home_fragment))
-        val appBarConfiguration = AppBarConfiguration(setOf(R.id.bem_vindo, R.id.login, R.id.cadastrarLogin))
-
-        setupActionBarWithNavController(activity as AppCompatActivity, navController, appBarConfiguration)
-        binding.mainNavView.setupWithNavController(navController)
-        (activity as AppCompatActivity).supportActionBar?.hide()
-    }
-
 }

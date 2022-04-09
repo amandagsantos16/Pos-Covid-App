@@ -34,6 +34,9 @@ android {
     viewBinding {
         enabled = true
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 ext {
@@ -61,6 +64,8 @@ dependencies {
     //Injeção de dependecia
     implementation "io.insert-koin:koin-android:$koin_version"
     implementation "io.insert-koin:koin-androidx-navigation:$koin_version"
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

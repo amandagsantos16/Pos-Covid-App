@@ -1,13 +1,14 @@
 package com.amanda.poscovid.ui.fragment
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.amanda.poscovid.databinding.FragmentSplashScreenBinding
 
-class SplashScreenFragment : Fragment() {
+
+class SplashScreenFragment : BaseAppFragment() {
 
     private lateinit var binding: FragmentSplashScreenBinding
 
@@ -18,5 +19,9 @@ class SplashScreenFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        Handler().postDelayed(Runnable { //This method will be executed once the timer is over
+            navigateTo(SplashScreenFragmentDirections.splashScreenParaMain())
+        }, 3000)
     }
 }
