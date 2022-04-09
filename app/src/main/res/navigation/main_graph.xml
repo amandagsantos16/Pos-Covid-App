@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_home_to_ultimos_estudos"
             app:destination="@id/ultimos_estudos" />
+        <action
+            android:id="@+id/action_home_to_covid_no_mundo"
+            app:destination="@id/covid_no_mundo" />
     </fragment>
 
     <fragment
@@ -29,4 +32,10 @@
         android:name="com.amanda.poscovid.ui.fragment.UltimosEstudosFragment"
         android:label="@string/ultimos_estudos"
         tools:layout="@layout/fragment_ultimos_estudos" />
+
+    <fragment
+        android:id="@+id/covid_no_mundo"
+        android:name="com.amanda.poscovid.ui.fragment.CovidNoMundoFragment"
+        android:label="@string/covid_no_mundo"
+        tools:layout="@layout/fragment_covid_no_mundo" />
 </navigation>

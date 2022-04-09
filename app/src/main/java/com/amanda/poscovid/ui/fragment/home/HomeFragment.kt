@@ -20,7 +20,7 @@ class HomeFragment : BaseAppFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.covidNoMundo.setOnClickListener {
-
+            navigateTo(HomeFragmentDirections.actionHomeToCovidNoMundo())
         }
         binding.estudos.setOnClickListener {
             navigateTo(HomeFragmentDirections.actionHomeToUltimosEstudos())
