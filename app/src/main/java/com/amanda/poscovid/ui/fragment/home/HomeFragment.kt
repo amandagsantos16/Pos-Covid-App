@@ -5,11 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import com.amanda.poscovid.R
 import com.amanda.poscovid.databinding.FragmentHomeBinding
 import com.amanda.poscovid.ui.fragment.BaseAppFragment
 
@@ -33,7 +28,7 @@ class HomeFragment : BaseAppFragment() {
 
         }
         binding.saude.setOnClickListener {
-
+            navigateTo(HomeFragmentDirections.actionHomeToEspacoSaude())
         }
     }
 }

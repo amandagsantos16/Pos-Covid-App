@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:startDestination="@id/home"
-    android:id="@+id/main_graph.xml">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph.xml"
+    app:startDestination="@+id/home">
 
     <fragment
         android:id="@+id/home"
         android:name="com.amanda.poscovid.ui.fragment.home.HomeFragment"
-        tools:layout="@layout/fragment_home" />
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_espaco_saude"
+            app:destination="@id/espaco_saude" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/espaco_saude"
+        android:name="com.amanda.poscovid.ui.fragment.EspacoSaudeFragment"
+        android:label="Espaço saúde mental"
+        tools:layout="@layout/fragment_espaco_saude" />
 </navigation>
