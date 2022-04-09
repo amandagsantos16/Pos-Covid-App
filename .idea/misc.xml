@@ -28,6 +28,8 @@
         <entry key="app/src/main/res/layout/fragment_recuperar_senha.xml" value="0.396875" />
         <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.396875" />
         <entry key="app/src/main/res/layout/fragment_splash_screen.xml" value="0.396875" />
+        <entry key="app/src/main/res/layout/fragment_ultimos_estudos.xml" value="0.396875" />
+        <entry key="app/src/main/res/layout/item_estudo.xml" value="0.396875" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.396875" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.396875" />
         <entry key="app/src/main/res/menu/home.xml" value="0.396875" />

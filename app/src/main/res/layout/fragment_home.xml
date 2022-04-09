@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
             android:layout_marginTop="80dp"
-            android:text="@string/ltimos_estudos"
+            android:text="@string/ultimos_estudos"
             android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold" />
