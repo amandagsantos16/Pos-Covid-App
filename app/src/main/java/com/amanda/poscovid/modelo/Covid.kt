@@ -5,8 +5,8 @@ import java.io.Serializable
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 open class Covid : Serializable {
-    var cases: String? = String()
-    var deaths: String? = String()
-    var suspects: String? = String()
-    var refuses: String? = String()
+    var cases: Long? = 0
+    var deaths: Long? = 0
+    var suspects: Long? = 0
+    var refuses: Long? = 0
 }
