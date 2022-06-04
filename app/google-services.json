@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "917613027863",
+    "project_id": "pos-covid-4b409",
+    "storage_bucket": "pos-covid-4b409.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:917613027863:android:8b31e96fd773d97c1a7252",
+        "android_client_info": {
+          "package_name": "com.amanda.poscovid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "917613027863-36dgci7t43suj5lmi3r4lbnnups3p2ms.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJfHN9Li5JdNZRK_NQumDP3PVH1QBDKxU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "917613027863-36dgci7t43suj5lmi3r4lbnnups3p2ms.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
