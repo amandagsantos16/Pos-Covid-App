@@ -9,10 +9,11 @@ import com.amanda.poscovid.modelo.Noticia
 
 class EstudosViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    fun bindData(noticia : Noticia) {
+    fun bindData(noticia : Noticia, clickListener: ((Noticia) -> Unit)) {
         val titulo = itemView.findViewById<TextView>(R.id.estudo_titulo)
         val subtitulo = itemView.findViewById<TextView>(R.id.estudo_subtitulo)
         titulo.text = noticia.titulo
         subtitulo.text = noticia.subtitulo
+        itemView.setOnClickListener { clickListener(noticia) }
     }
 }

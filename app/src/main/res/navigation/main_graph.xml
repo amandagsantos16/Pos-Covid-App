@@ -31,11 +31,25 @@
         android:id="@+id/ultimos_estudos"
         android:name="com.amanda.poscovid.ui.fragment.UltimosEstudosFragment"
         android:label="@string/ultimos_estudos"
-        tools:layout="@layout/fragment_ultimos_estudos" />
+        tools:layout="@layout/fragment_ultimos_estudos" >
+        <action
+            android:id="@+id/action_ultimos_estudos_to_detalhes"
+            app:destination="@id/estudosDetalhesFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/covid_no_mundo"
         android:name="com.amanda.poscovid.ui.fragment.CovidNoMundoFragment"
         android:label="@string/covid_no_mundo"
         tools:layout="@layout/fragment_covid_no_mundo" />
+    <fragment
+        android:id="@+id/estudosDetalhesFragment"
+        android:name="com.amanda.poscovid.ui.fragment.EstudosDetalhesFragment"
+        android:label="@string/estudo"
+        tools:layout="@layout/fragment_estudos_detalhes" >
+        <argument
+            android:name="estudo"
+            app:argType="com.amanda.poscovid.modelo.Noticia" />
+    </fragment>
+
 </navigation>

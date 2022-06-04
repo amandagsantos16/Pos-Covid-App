@@ -11,7 +11,7 @@ import com.amanda.poscovid.ui.adapter.viewholder.EstudosViewHolder
 class EstudosAdapter(private val context: Context?) : RecyclerView.Adapter<EstudosViewHolder>() {
 
     private val noticias: MutableList<Noticia> = mutableListOf()
-    var clickListener: (() -> Unit) = { }
+    var clickListener: ((Noticia) -> Unit) = { }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EstudosViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_estudo, parent, false)
@@ -24,7 +24,7 @@ class EstudosAdapter(private val context: Context?) : RecyclerView.Adapter<Estud
     }
 
     override fun onBindViewHolder(holder: EstudosViewHolder, position: Int) {
-        holder.bindData(noticias[position])
+        holder.bindData(noticias[position], clickListener)
     }
 
     fun atualizaLista(noticias: List<Noticia>) {

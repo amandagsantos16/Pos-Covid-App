@@ -35,5 +35,7 @@
     <string name="quero_ser_um_psicologo_voluntario">Quero ser um psicólogo voluntário</string>
     <string name="erro_padrao_api_get">Descuple, não conseguimos buscas os dados no momento, por favor, tente novamente mais tarde.</string>
     <string name="estados">Estados</string>
+    <string name="link_estudo"><u>Acesse a noticia completa aqui</u></string>
+    <string name="estudo">Estudo</string>
 
 </resources>

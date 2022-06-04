@@ -26,6 +26,11 @@ class UltimosEstudosFragment : BaseAppFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        adapter.clickListener = {
+            navigateTo(
+                UltimosEstudosFragmentDirections.actionUltimosEstudosToDetalhes(it)
+            )
+        }
         binding.recyclerView.adapter = adapter
         viewModel.getAssinantes().observe(viewLifecycleOwner) {
             it?.let {
