@@ -13,17 +13,13 @@ import com.amanda.poscovid.databinding.FragmentCovidNoMundoBinding
 import com.amanda.poscovid.databinding.ProcurarEstadosBinding
 import com.amanda.poscovid.modelo.Estado
 import com.amanda.poscovid.ui.adapter.list.EstadoAdapter
-import com.amanda.poscovid.ui.adapter.list.NoticiasAdapter
 import com.amanda.poscovid.ui.viewModel.CovidViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.NumberFormat
 
-
 class CovidNoMundoFragment : BaseAppFragment() {
 
     private lateinit var binding: FragmentCovidNoMundoBinding
-
-    private val adapter by lazy { NoticiasAdapter(context) }
 
     private val viewModel: CovidViewModel by viewModel()
 
@@ -50,15 +46,6 @@ class CovidNoMundoFragment : BaseAppFragment() {
             } ?: mostrarAlerta(getString(R.string.erro_padrao_api_get)) {
                 findNavController().popBackStack()
             }
-        }
-        configuraNoticias()
-    }
-
-    private fun configuraNoticias() {
-        binding.recyclerView.adapter = adapter
-
-        viewModel.noticias.observe(viewLifecycleOwner) { noticias ->
-            adapter.atualizaLista(noticias)
         }
     }
 

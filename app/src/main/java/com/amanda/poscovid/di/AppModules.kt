@@ -4,5 +4,6 @@ val appModules = listOf(
     viewModelModule,
     clientModules,
     repositoryModule,
-    preferencesModule
+    preferencesModule,
+    FirebaseModules
 )
