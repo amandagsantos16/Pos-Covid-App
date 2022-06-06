@@ -25,7 +25,11 @@
         android:id="@+id/espaco_saude"
         android:name="com.amanda.poscovid.ui.fragment.EspacoSaudeFragment"
         android:label="Espaço saúde mental"
-        tools:layout="@layout/fragment_espaco_saude" />
+        tools:layout="@layout/fragment_espaco_saude" >
+        <action
+            android:id="@+id/action_espaco_saude_to_cadastrar_psicologo"
+            app:destination="@id/cadastrar_psicologo" />
+    </fragment>
 
     <fragment
         android:id="@+id/ultimos_estudos"
@@ -50,6 +54,13 @@
         <argument
             android:name="estudo"
             app:argType="com.amanda.poscovid.modelo.Noticia" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cadastrar_psicologo"
+        android:name="com.amanda.poscovid.ui.fragment.saude.CadastrarPsicologoFragment"
+        android:label="@string/cadastrar_psicologo"
+        tools:layout="@layout/fragment_cadastrar_psicologo" >
     </fragment>
 
 </navigation>

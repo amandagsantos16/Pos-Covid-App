@@ -19,5 +19,15 @@ class EspacoSaudeFragment : BaseAppFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        setOnClicks()
+    }
+
+    private fun setOnClicks() {
+        binding.serPsicologo.setOnClickListener {
+            navigateTo(
+                EspacoSaudeFragmentDirections.actionEspacoSaudeToCadastrarPsicologo()
+            )
+        }
     }
 }

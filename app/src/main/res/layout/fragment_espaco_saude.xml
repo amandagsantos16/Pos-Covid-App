@@ -29,7 +29,7 @@
         android:orientation="horizontal">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/ser_psicologo"
+            android:id="@+id/ser_paciente"
             android:layout_width="0dp"
             android:layout_height="140dp"
             android:layout_marginHorizontal="12dp"
@@ -48,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="12dp"
                     android:gravity="center"
-                    android:text="@string/quero_receber_amparo_psicologico"
+                    android:text="@string/aceessar_area_paciente"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
@@ -63,7 +63,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/ser_paciente"
+            android:id="@+id/ser_psicologo"
             android:layout_width="0dp"
             android:layout_height="140dp"
             android:layout_marginHorizontal="12dp"
@@ -82,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="12dp"
                     android:gravity="center"
-                    android:text="@string/quero_ser_um_psicologo_voluntario"
+                    android:text="@string/acessar_area_psicologo"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 

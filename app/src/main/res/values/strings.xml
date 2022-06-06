@@ -31,13 +31,21 @@
     <string name="covid_no_mundo">Covid no mundo</string>
     <string name="ultimos_estudos">Últimos estudos</string>
     <string name="espa_o_sa_de_mental">Espaço - Saúde mental</string>
-    <string name="quero_receber_amparo_psicologico">Quero receber amparo psicológico</string>
-    <string name="quero_ser_um_psicologo_voluntario">Quero ser um psicólogo voluntário</string>
+    <string name="aceessar_area_paciente">Acessar área do Paciente</string>
+    <string name="acessar_area_psicologo">Acessar área do Psicologo</string>
     <string name="erro_padrao_api_get">Descuple, não conseguimos buscas os dados no momento, por favor, tente novamente mais tarde.</string>
     <string name="estados">Estados</string>
     <string name="link_estudo"><u>Acesse a noticia completa aqui</u></string>
     <string name="estudo">Estudo</string>
-    <string name="agenda">Agenda</string>
+    <string name="agenda">Agendamentos</string>
     <string name="login">Login</string>
+    <string name="nome_completo">Nome completo</string>
+    <string name="data_de_nascimento">Data de nascimento</string>
+    <string name="crp">CRP</string>
+    <string name="resumo_profissional">Resumo profissional</string>
+    <string name="especializacao">Especialização</string>
+    <string name="enviar">Enviar</string>
+    <string name="cadastrar_psicologo">Cadastrar Psicologo</string>
+    <string name="cadastrar_psicologo_dados_enviados">Seus dados foram enviados para avaliação e em breve você receberá um retorno</string>
 
 </resources>
