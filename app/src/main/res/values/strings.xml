@@ -37,5 +37,7 @@
     <string name="estados">Estados</string>
     <string name="link_estudo"><u>Acesse a noticia completa aqui</u></string>
     <string name="estudo">Estudo</string>
+    <string name="agenda">Agenda</string>
+    <string name="login">Login</string>
 
 </resources>
