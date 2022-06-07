@@ -33,30 +33,18 @@
         app:layout_constraintTop_toBottomOf="@id/cadastrar_login_name_textView" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/cadastrar_login_nome"
-        style="@style/LoginEditText"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="40dp"
-        android:hint="@string/nome_negrito"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cadastrar_login_covid_imageView" />
-
-    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/cadastrar_login_email"
         style="@style/LoginEditText"
         android:layout_width="0dp"
         android:layout_height="52dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="40dp"
         android:hint="@string/email_negrito"
         android:inputType="textEmailAddress"
         android:maxLength="25"
-        app:layout_constraintEnd_toEndOf="@id/cadastrar_login_nome"
-        app:layout_constraintStart_toStartOf="@id/cadastrar_login_nome"
-        app:layout_constraintTop_toBottomOf="@id/cadastrar_login_nome" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cadastrar_login_covid_imageView" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/cadastrar_login_senha"
@@ -85,6 +73,33 @@
         app:layout_constraintTop_toTopOf="@id/cadastrar_login_senha"
         app:srcCompat="@drawable/ic_olho_cortado" />
 
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/cadastrar_login_senha_confirmar"
+        style="@style/LoginEditText"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/confirmar_senha_negrito"
+        android:inputType="textPassword"
+        android:maxLength="25"
+        app:layout_constraintEnd_toEndOf="@id/cadastrar_login_senha"
+        app:layout_constraintStart_toStartOf="@id/cadastrar_login_senha"
+        app:layout_constraintTop_toBottomOf="@id/cadastrar_login_senha" />
+
+    <ImageView
+        android:id="@+id/cadastrar_login_mostra_senha_confirmar"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:background="?selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingHorizontal="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/cadastrar_login_senha_confirmar"
+        app:layout_constraintEnd_toEndOf="@id/cadastrar_login_senha_confirmar"
+        app:layout_constraintTop_toTopOf="@id/cadastrar_login_senha_confirmar"
+        app:srcCompat="@drawable/ic_olho_cortado" />
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/cadasrar_confirmar"
@@ -97,7 +112,7 @@
         android:text="@string/cadastrar_negrito"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cadastrar_login_senha" />
+        app:layout_constraintTop_toBottomOf="@id/cadastrar_login_senha_confirmar" />
 
     <ProgressBar
         android:id="@+id/cadastrar_progress"

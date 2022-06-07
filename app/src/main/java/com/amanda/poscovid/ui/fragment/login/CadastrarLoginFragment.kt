@@ -7,11 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import com.amanda.poscovid.databinding.FragmentCadastrarLoginBinding
+import com.amanda.poscovid.modelo.NovaConta
 import com.amanda.poscovid.ui.fragment.BaseAppFragment
+import com.amanda.poscovid.ui.viewModel.LoginViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CadastrarLoginFragment : BaseAppFragment() {
 
     private lateinit var binding: FragmentCadastrarLoginBinding
+    private val viewModel by viewModel<LoginViewModel>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentCadastrarLoginBinding.inflate(layoutInflater)
@@ -22,14 +26,24 @@ class CadastrarLoginFragment : BaseAppFragment() {
         super.onViewCreated(view, savedInstanceState)
         configuraEditTexts()
         configuraBotaoMostrarSenha()
+        configuraBotaoCadastrar()
+    }
+
+    private fun configuraBotaoCadastrar() {
+        binding.cadasrarConfirmar.setOnClickListener {
+            viewModel.cadastraConta(instanciaConta()).observe(viewLifecycleOwner) {
+
+            }
+        }
     }
 
     private fun configuraBotaoMostrarSenha() {
         configuraSenhaEditText(binding.cadastrarLoginSenha, binding.cadastrarLoginMostraSenha)
+        configuraSenhaEditText(binding.cadastrarLoginSenhaConfirmar, binding.cadastrarLoginMostraSenhaConfirmar)
     }
 
     private fun configuraEditTexts() {
-        binding.cadastrarLoginNome.addTextChangedListener(afterTextChanged = editTextChanged)
+        binding.cadastrarLoginSenhaConfirmar.addTextChangedListener(afterTextChanged = editTextChanged)
         binding.cadastrarLoginEmail.addTextChangedListener(afterTextChanged = editTextChanged)
         binding.cadastrarLoginSenha.addTextChangedListener(afterTextChanged = editTextChanged)
     }
@@ -39,8 +53,16 @@ class CadastrarLoginFragment : BaseAppFragment() {
     }
 
     private fun validaBotaoCadastrar() {
-        binding.cadasrarConfirmar.isEnabled = binding.cadastrarLoginNome.text.toString().isNotEmpty() &&
+        binding.cadasrarConfirmar.isEnabled = binding.cadastrarLoginSenhaConfirmar.text.toString().isNotEmpty() &&
                 binding.cadastrarLoginEmail.text.toString().isNotEmpty() &&
                 binding.cadastrarLoginSenha.text.toString().isNotEmpty()
+    }
+
+    private fun instanciaConta(): NovaConta {
+        return NovaConta().also {
+            it.email = binding.cadastrarLoginEmail.text.toString()
+            it.senha = binding.cadastrarLoginSenha.text.toString()
+            it.senhaConfirmacao = binding.cadastrarLoginSenhaConfirmar.text.toString()
+        }
     }
 }

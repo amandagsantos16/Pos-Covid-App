@@ -1,11 +1,16 @@
 package com.amanda.poscovid.api.service
 
+import com.amanda.poscovid.modelo.NovaConta
+import retrofit2.Call
+import retrofit2.http.Body
+import retrofit2.http.POST
+
 interface LoginService {
-//
-//    @POST("Users/Cadastro")
-//    fun cadastrarUsuario(
-//        @Body usuario: Usuario
-//    ): Call<Usuario>
+
+    @POST("identidade/nova-conta")
+    fun cadastrarUsuario(
+        @Body conta: NovaConta
+    ): Call<Void>
 //
 //    @POST("Users/Login")
 //    fun iniciaLogin(

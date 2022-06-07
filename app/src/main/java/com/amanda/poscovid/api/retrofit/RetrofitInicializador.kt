@@ -25,7 +25,7 @@ class RetrofitInicializador {
 
     private val retrofit: Retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl("http://orion.portaliconnect.com.br/api/")
+            .baseUrl("https://localhost:7264/api/")
             .addConverterFactory(JacksonConverterFactory.create())
             .client(client)
             .build()
