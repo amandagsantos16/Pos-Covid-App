@@ -1,5 +1,6 @@
 package com.amanda.poscovid.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import com.google.android.material.navigation.NavigationView
@@ -32,6 +33,22 @@ class HomeActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(setOf(R.id.home, R.id.nav_agenda, R.id.nav_logoff, R.id.nav_login), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.nav_login -> {
+                    startActivity(
+                        Intent(this, LoginActivity::class.java)
+                    )
+                }
+                R.id.nav_logoff -> {
+
+                }
+                R.id.nav_agenda -> {
+
+                }
+            }
+            false
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

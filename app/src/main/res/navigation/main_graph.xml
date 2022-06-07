@@ -5,6 +5,10 @@
     android:id="@+id/main_graph.xml"
     app:startDestination="@+id/home">
 
+    <activity android:id="@+id/login_activity"
+        android:name="com.amanda.poscovid.ui.activity.LoginActivity"
+        tools:layout="@layout/activity_login"/>
+
     <fragment
         android:id="@+id/home"
         android:name="com.amanda.poscovid.ui.fragment.home.HomeFragment"
