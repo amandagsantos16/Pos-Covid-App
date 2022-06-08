@@ -6,11 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.amanda.poscovid.databinding.FragmentAgendaPacienteBinding
+import com.amanda.poscovid.ui.adapter.list.AgendaAdapter
 import com.amanda.poscovid.ui.fragment.BaseAppFragment
 
-class AgendaPacienteFragment: BaseAppFragment() {
+class AgendaPacienteFragment : BaseAppFragment() {
 
     private lateinit var binding: FragmentAgendaPacienteBinding
+    private val adapter by lazy { AgendaAdapter(context) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         (activity as AppCompatActivity).supportActionBar?.show()
@@ -20,5 +22,7 @@ class AgendaPacienteFragment: BaseAppFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.agendaPacienteRecyclerView.adapter = adapter
     }
 }
