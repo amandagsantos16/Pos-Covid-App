@@ -4,7 +4,5 @@ interface ITokenPreferenceHelper {
 
     fun clearPrefs()
 
-//    var token: Token
-
-    val accessToken: String
+    var accessToken: String
 }

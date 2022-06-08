@@ -2,6 +2,7 @@ package com.amanda.poscovid.preferences
 
 import android.content.Context
 import com.amanda.poscovid.extension.get
+import com.amanda.poscovid.extension.set
 
 open class UserPreferenceManager constructor(context: Context) : IUserPreferenceHelper {
 
@@ -11,14 +12,17 @@ open class UserPreferenceManager constructor(context: Context) : IUserPreference
         preferences.edit().clear().apply()
     }
 
-    override val id: Int
-        get() = preferences[ID] ?: -1
+    override var id: String
+        get() = preferences[ID] ?: String()
+        set(value) {
+            preferences[ID] = value
+        }
 
-    override val email: String
-        get() = preferences[EMAIL] ?: ""
-
-    override val senha: String
-        get() = preferences[SENHA] ?: ""
+    override var email: String
+        get() = preferences[EMAIL] ?: String()
+        set(value) {
+            preferences[EMAIL] = value
+        }
 
 
     companion object {

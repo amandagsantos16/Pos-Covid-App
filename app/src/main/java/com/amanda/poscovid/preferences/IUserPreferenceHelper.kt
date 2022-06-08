@@ -4,11 +4,7 @@ interface IUserPreferenceHelper {
 
     fun clearPrefs()
 
-//    var usuario: Usuario
+    var id: String
 
-    val id: Int
-
-    val email: String
-
-    val senha: String
+    var email: String
 }

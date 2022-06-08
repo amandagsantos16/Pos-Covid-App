@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
+import com.amanda.poscovid.R
 import com.amanda.poscovid.databinding.FragmentCadastrarLoginBinding
 import com.amanda.poscovid.modelo.NovaConta
 import com.amanda.poscovid.ui.fragment.BaseAppFragment
@@ -32,7 +33,14 @@ class CadastrarLoginFragment : BaseAppFragment() {
     private fun configuraBotaoCadastrar() {
         binding.cadasrarConfirmar.setOnClickListener {
             viewModel.cadastraConta(instanciaConta()).observe(viewLifecycleOwner) {
-
+                it?.apply {
+                    dados?.let {
+                        activity?.finish()
+                    }
+                    detalhes?.let {
+                        mostrarAlerta(detalhes.error ?: String())
+                    }
+                } ?: mostrarAlerta(getString(R.string.erro_padrao_api))
             }
         }
     }

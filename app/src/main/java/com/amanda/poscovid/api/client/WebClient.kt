@@ -32,7 +32,7 @@ open class WebClient {
     private fun <T> retornaMensagemDeErro(response: Response<T>, resposta: (RespostaWebClient<T>?) -> Unit) {
         try {
             val jsonObject = JSONObject(response.errorBody()?.string() ?: "")
-            val detalheWebClient = DetalheWebClient("", "", jsonObject.optString("error"))
+            val detalheWebClient = DetalheWebClient("", "", jsonObject.optString("title"))
             resposta(RespostaWebClient(null, detalheWebClient))
         } catch (e: Exception) {
             resposta(null)

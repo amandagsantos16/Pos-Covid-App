@@ -48,5 +48,6 @@
     <string name="cadastrar_psicologo">Cadastrar Psicologo</string>
     <string name="cadastrar_psicologo_dados_enviados">Seus dados foram enviados para avaliação e em breve você receberá um retorno</string>
     <string name="confirmar_senha_negrito"><b>Confirmar senha</b></string>
+    <string name="erro_padrao_api">Desculpe, tente novamente mais tarde</string>
 
 </resources>

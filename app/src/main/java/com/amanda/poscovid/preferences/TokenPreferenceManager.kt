@@ -2,6 +2,7 @@ package com.amanda.poscovid.preferences
 
 import android.content.Context
 import com.amanda.poscovid.extension.get
+import com.amanda.poscovid.extension.set
 
 open class TokenPreferenceManager constructor(context: Context) : ITokenPreferenceHelper {
 
@@ -11,8 +12,11 @@ open class TokenPreferenceManager constructor(context: Context) : ITokenPreferen
         preferences.edit().clear().apply()
     }
 
-    override val accessToken: String
+    override var accessToken: String
         get() = preferences[TOKEN_ACCESS] ?: ""
+        set(value) {
+            preferences[TOKEN_ACCESS] = value
+        }
 
     companion object {
         private const val PREFERENCES_KEY = "CHAVE_ORION_TOKEN_PREFERENCES"

@@ -25,7 +25,7 @@ class RetrofitInicializador {
 
     private val retrofit: Retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl("https://localhost:7264/api/")
+            .baseUrl(" https://localhost:7264/")
             .addConverterFactory(JacksonConverterFactory.create())
             .client(client)
             .build()

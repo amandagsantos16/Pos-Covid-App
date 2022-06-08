@@ -1,5 +1,6 @@
 package com.amanda.poscovid.api.client
 
+import com.amanda.poscovid.api.modelo.LoginRetorno
 import com.amanda.poscovid.api.modelo.RespostaWebClient
 import com.amanda.poscovid.modelo.NovaConta
 
@@ -7,7 +8,7 @@ class UsuarioWebClient : WebClient() {
 
     private val service = retrofit.loginService
 
-    fun cadastrarNovoUsuario(conta: NovaConta, retorno: (RespostaWebClient<Void>?) -> Unit) {
+    fun cadastrarNovoUsuario(conta: NovaConta, retorno: (RespostaWebClient<LoginRetorno>?) -> Unit) {
         service.cadastrarUsuario(conta)
             .executaRequest(retorno)
     }
