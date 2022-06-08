@@ -5,9 +5,10 @@
     android:id="@+id/main_graph.xml"
     app:startDestination="@+id/home">
 
-    <activity android:id="@+id/login_activity"
+    <activity
+        android:id="@+id/login_activity"
         android:name="com.amanda.poscovid.ui.activity.LoginActivity"
-        tools:layout="@layout/activity_login"/>
+        tools:layout="@layout/activity_login" />
 
     <fragment
         android:id="@+id/home"
@@ -29,17 +30,20 @@
         android:id="@+id/espaco_saude"
         android:name="com.amanda.poscovid.ui.fragment.EspacoSaudeFragment"
         android:label="Espaço saúde mental"
-        tools:layout="@layout/fragment_espaco_saude" >
+        tools:layout="@layout/fragment_espaco_saude">
         <action
             android:id="@+id/action_espaco_saude_to_cadastrar_psicologo"
             app:destination="@id/cadastrar_psicologo" />
+        <action
+            android:id="@+id/action_espaco_saude_to_agenda_paciente"
+            app:destination="@id/agenda_paciente" />
     </fragment>
 
     <fragment
         android:id="@+id/ultimos_estudos"
         android:name="com.amanda.poscovid.ui.fragment.UltimosEstudosFragment"
         android:label="@string/ultimos_estudos"
-        tools:layout="@layout/fragment_ultimos_estudos" >
+        tools:layout="@layout/fragment_ultimos_estudos">
         <action
             android:id="@+id/action_ultimos_estudos_to_detalhes"
             app:destination="@id/estudosDetalhesFragment" />
@@ -54,7 +58,7 @@
         android:id="@+id/estudosDetalhesFragment"
         android:name="com.amanda.poscovid.ui.fragment.EstudosDetalhesFragment"
         android:label="@string/estudo"
-        tools:layout="@layout/fragment_estudos_detalhes" >
+        tools:layout="@layout/fragment_estudos_detalhes">
         <argument
             android:name="estudo"
             app:argType="com.amanda.poscovid.modelo.Noticia" />
@@ -64,7 +68,12 @@
         android:id="@+id/cadastrar_psicologo"
         android:name="com.amanda.poscovid.ui.fragment.saude.CadastrarPsicologoFragment"
         android:label="@string/cadastrar_psicologo"
-        tools:layout="@layout/fragment_cadastrar_psicologo" >
-    </fragment>
+        tools:layout="@layout/fragment_cadastrar_psicologo"/>
+
+    <fragment
+        android:id="@+id/agenda_paciente"
+        android:name="com.amanda.poscovid.ui.fragment.saude.AgendaPacienteFragment"
+        android:label="@string/horarios_agendados"
+        tools:layout="@layout/fragment_agenda_paciente"/>
 
 </navigation>

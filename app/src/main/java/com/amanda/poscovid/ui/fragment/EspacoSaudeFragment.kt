@@ -29,5 +29,10 @@ class EspacoSaudeFragment : BaseAppFragment() {
                 EspacoSaudeFragmentDirections.actionEspacoSaudeToCadastrarPsicologo()
             )
         }
+        binding.serPaciente.setOnClickListener {
+            navigateTo(
+                EspacoSaudeFragmentDirections.actionEspacoSaudeToAgendaPaciente()
+            )
+        }
     }
 }
