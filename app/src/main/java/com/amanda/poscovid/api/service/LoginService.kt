@@ -2,6 +2,7 @@ package com.amanda.poscovid.api.service
 
 import com.amanda.poscovid.api.modelo.LoginRetorno
 import com.amanda.poscovid.modelo.NovaConta
+import com.amanda.poscovid.modelo.UsuarioLogin
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -12,11 +13,11 @@ interface LoginService {
     fun cadastrarUsuario(
         @Body conta: NovaConta
     ): Call<LoginRetorno>
-//
-//    @POST("Users/Login")
-//    fun iniciaLogin(
-//        @Body usuarioLogin: UsuarioLogin
-//    ): Call<LoginRetorno>
+
+    @POST("api/identidades/autenticar")
+    fun iniciaLogin(
+        @Body usuarioLogin: UsuarioLogin
+    ): Call<LoginRetorno>
 //
 //    @POST("Users/RecuperarSenha")
 //    fun recuperarSenha(

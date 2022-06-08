@@ -4,6 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 class UsuarioLogin(
-    val cpf: String?,
-    val senha: String?
+    val email: String,
+    val senha: String
 )

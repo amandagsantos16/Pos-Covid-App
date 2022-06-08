@@ -3,6 +3,7 @@ package com.amanda.poscovid.api.client
 import com.amanda.poscovid.api.modelo.LoginRetorno
 import com.amanda.poscovid.api.modelo.RespostaWebClient
 import com.amanda.poscovid.modelo.NovaConta
+import com.amanda.poscovid.modelo.UsuarioLogin
 
 class UsuarioWebClient : WebClient() {
 
@@ -13,10 +14,10 @@ class UsuarioWebClient : WebClient() {
             .executaRequest(retorno)
     }
 
-//    fun iniciaSessao(usuarioLogin: UsuarioLogin, retorno: (RespostaWebClient<LoginRetorno>?) -> Unit) {
-//        service.iniciaLogin(usuarioLogin)
-//            .executaRequest(retorno)
-//    }
+    fun iniciaSessao(usuarioLogin: UsuarioLogin, retorno: (RespostaWebClient<LoginRetorno>?) -> Unit) {
+        service.iniciaLogin(usuarioLogin)
+            .executaRequest(retorno)
+    }
 //
 //    fun recuperarSenha(cpf: String, retorno: (RespostaWebClient<String>?) -> Unit) {
 //        service.recuperarSenha(cpf).executaRequest { respota ->

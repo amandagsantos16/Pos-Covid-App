@@ -7,6 +7,7 @@ import com.amanda.poscovid.api.client.UsuarioWebClient
 import com.amanda.poscovid.api.modelo.LoginRetorno
 import com.amanda.poscovid.api.modelo.RespostaWebClient
 import com.amanda.poscovid.modelo.NovaConta
+import com.amanda.poscovid.modelo.UsuarioLogin
 import com.amanda.poscovid.preferences.ITokenPreferenceHelper
 import com.amanda.poscovid.preferences.IUserPreferenceHelper
 
@@ -24,6 +25,28 @@ class LoginViewModel(
         isLoading.value = true
         val liveData = MutableLiveData<RespostaWebClient<LoginRetorno>?>()
         client.cadastrarNovoUsuario(conta) { resposta ->
+            resposta?.dados?.let { loginRetorno ->
+                loginRetorno.accessToken?.let {
+                    tokenHelper.accessToken = it
+                }
+                loginRetorno.usuarioToken?.id?.let {
+                    userHelper.id = it
+                }
+                loginRetorno.usuarioToken?.email?.let {
+                    userHelper.email = it
+                }
+            }
+            liveData.postValue(resposta)
+            isLoading.postValue(false)
+        }
+
+        return liveData
+    }
+
+    fun fazerLogin(login: UsuarioLogin): LiveData<RespostaWebClient<LoginRetorno>?> {
+        isLoading.value = true
+        val liveData = MutableLiveData<RespostaWebClient<LoginRetorno>?>()
+        client.iniciaSessao(login) { resposta ->
             resposta?.dados?.let { loginRetorno ->
                 loginRetorno.accessToken?.let {
                     tokenHelper.accessToken = it

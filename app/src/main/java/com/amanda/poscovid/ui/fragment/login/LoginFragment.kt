@@ -6,12 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
+import com.amanda.poscovid.R
 import com.amanda.poscovid.databinding.FragmentLoginBinding
+import com.amanda.poscovid.modelo.NovaConta
+import com.amanda.poscovid.modelo.UsuarioLogin
 import com.amanda.poscovid.ui.fragment.BaseAppFragment
+import com.amanda.poscovid.ui.viewModel.LoginViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginFragment : BaseAppFragment() {
 
     private lateinit var binding: FragmentLoginBinding
+    private val viewModel by viewModel<LoginViewModel>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentLoginBinding.inflate(layoutInflater)
@@ -23,6 +29,26 @@ class LoginFragment : BaseAppFragment() {
         configuraEditTexts()
         configuraBotaoMostrarSenha()
         setListeners()
+        configuraBotaoCadastrar()
+    }
+
+    private fun configuraBotaoCadastrar() {
+        binding.loginConfirmar.setOnClickListener {
+            viewModel.fazerLogin(instanciaConta()).observe(viewLifecycleOwner) {
+                it?.apply {
+                    dados?.let {
+                        activity?.finish()
+                    }
+                    detalhes?.let {
+                        mostrarAlerta(detalhes.error ?: String())
+                    }
+                } ?: mostrarAlerta(getString(R.string.erro_padrao_api))
+            }
+        }
+    }
+
+    private fun instanciaConta(): UsuarioLogin {
+        return UsuarioLogin(binding.loginCpf.text.toString(), binding.loginSenha.text.toString())
     }
 
     private fun setListeners() {
