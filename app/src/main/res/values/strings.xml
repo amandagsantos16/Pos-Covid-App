@@ -51,5 +51,7 @@
     <string name="erro_padrao_api">Desculpe, tente novamente mais tarde</string>
     <string name="horarios_agendados">Horários agendados</string>
     <string name="seleciona_psicologo">Seleciona um psicologo</string>
+    <string name="horarios_disponiveis_para_o_dia">Horários disponíveis</string>
+    <string name="agendar_sessao">Agendar sessão</string>
 
 </resources>

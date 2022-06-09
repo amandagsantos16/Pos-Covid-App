@@ -84,6 +84,16 @@
         android:id="@+id/seleciona_psicologo"
         android:name="com.amanda.poscovid.ui.fragment.saude.SelecionaPsicologoFragment"
         android:label="@string/seleciona_psicologo"
-        tools:layout="@layout/fragment_seleciona_psicologo"/>
+        tools:layout="@layout/fragment_seleciona_psicologo">
+        <action
+            android:id="@+id/action_seleciona_psicologo_to_seleciona_horario"
+            app:destination="@id/seleciona_horario" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/seleciona_horario"
+        android:name="com.amanda.poscovid.ui.fragment.saude.SelecionaHorarioFragment"
+        android:label="@string/agendar_sessao"
+        tools:layout="@layout/fragment_seleciona_horario"/>
 
 </navigation>

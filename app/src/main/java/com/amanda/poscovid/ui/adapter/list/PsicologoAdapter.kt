@@ -11,7 +11,7 @@ class PsicologoAdapter(private val context: Context?) : RecyclerView.Adapter<Psi
 
     private val psicologos: MutableList<Any> = mutableListOf()
 
-    var clickListener: ((Any) -> Unit) = { }
+    var clickListener: (() -> Unit) = { }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PsicologoViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_psicologo, parent, false)
@@ -24,11 +24,12 @@ class PsicologoAdapter(private val context: Context?) : RecyclerView.Adapter<Psi
     }
 
     override fun onBindViewHolder(holder: PsicologoViewHolder, position: Int) {
+        holder.itemView.setOnClickListener { clickListener() }
     }
 
-    fun atualizaLista(consultas: List<Any>) {
+    fun atualizaLista(lista: List<Any>) {
         this.psicologos.clear()
-        this.psicologos.addAll(consultas)
+        this.psicologos.addAll(lista)
         notifyDataSetChanged()
     }
 }

@@ -24,5 +24,10 @@ class SelecionaPsicologoFragment : BaseAppFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.selecionaPsicologoRecyclerView.adapter = adapter
+        adapter.clickListener = {
+            navigateTo(
+                SelecionaPsicologoFragmentDirections.actionSelecionaPsicologoToSelecionaHorario()
+            )
+        }
     }
 }

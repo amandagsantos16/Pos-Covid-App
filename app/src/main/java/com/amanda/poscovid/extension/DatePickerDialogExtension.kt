@@ -5,8 +5,7 @@ import android.content.Context
 import android.widget.DatePicker
 import java.util.*
 
-fun showDataPickerDialog(context: Context, listener: (DatePicker, Int, Int, Int) -> Unit) {
-    val calendar: Calendar = Calendar.getInstance()
+fun showDataPickerDialog(context: Context, calendar: Calendar, listener: (DatePicker, Int, Int, Int) -> Unit) {
     val day = calendar.get(Calendar.DAY_OF_MONTH)
     val month = calendar.get(Calendar.MONTH)
     val year = calendar.get(Calendar.YEAR)
