@@ -50,5 +50,6 @@
     <string name="confirmar_senha_negrito"><b>Confirmar senha</b></string>
     <string name="erro_padrao_api">Desculpe, tente novamente mais tarde</string>
     <string name="horarios_agendados">Horários agendados</string>
+    <string name="seleciona_psicologo">Seleciona um psicologo</string>
 
 </resources>

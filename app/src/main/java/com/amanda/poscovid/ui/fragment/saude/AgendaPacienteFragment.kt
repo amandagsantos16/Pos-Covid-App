@@ -26,7 +26,9 @@ class AgendaPacienteFragment : BaseAppFragment() {
         binding.agendaPacienteRecyclerView.adapter = adapter
 
         binding.agendaPacienteFab.setOnClickListener {
-
+            navigateTo(
+                AgendaPacienteFragmentDirections.actionAgendaPacienteToSelecionaPsicologo()
+            )
         }
     }
 }

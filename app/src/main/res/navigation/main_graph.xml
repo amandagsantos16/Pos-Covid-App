@@ -74,6 +74,16 @@
         android:id="@+id/agenda_paciente"
         android:name="com.amanda.poscovid.ui.fragment.saude.AgendaPacienteFragment"
         android:label="@string/horarios_agendados"
-        tools:layout="@layout/fragment_agenda_paciente"/>
+        tools:layout="@layout/fragment_agenda_paciente">
+        <action
+            android:id="@+id/action_agenda_paciente_to_seleciona_psicologo"
+            app:destination="@id/seleciona_psicologo" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/seleciona_psicologo"
+        android:name="com.amanda.poscovid.ui.fragment.saude.SelecionaPsicologoFragment"
+        android:label="@string/seleciona_psicologo"
+        tools:layout="@layout/fragment_seleciona_psicologo"/>
 
 </navigation>
