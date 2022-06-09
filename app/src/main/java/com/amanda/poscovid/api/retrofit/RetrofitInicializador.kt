@@ -1,5 +1,6 @@
 package com.amanda.poscovid.api.retrofit
 
+import com.amanda.poscovid.api.retrofit.RetrofitUtil.getUnsafeOkHttpClient
 import com.amanda.poscovid.api.service.CovidService
 import com.amanda.poscovid.api.service.LoginService
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
@@ -14,7 +15,7 @@ class RetrofitInicializador {
 
     private val client by lazy {
         val interceptor = HttpLoggingInterceptor()
-        interceptor.level = HttpLoggingInterceptor.Level.BODY
+        interceptor.level = HttpLoggingInterceptor.Level.BASIC
         OkHttpClient.Builder()
             .addInterceptor(interceptor) //o loggin tem que ser o ultimo a ser adicionado
             .connectTimeout(20, TimeUnit.SECONDS)
@@ -25,9 +26,9 @@ class RetrofitInicializador {
 
     private val retrofit: Retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl(" https://localhost:7264/")
+            .baseUrl("https://192.168.1.117:7264/")
             .addConverterFactory(JacksonConverterFactory.create())
-            .client(client)
+            .client(getUnsafeOkHttpClient().build())
             .build()
     }
 

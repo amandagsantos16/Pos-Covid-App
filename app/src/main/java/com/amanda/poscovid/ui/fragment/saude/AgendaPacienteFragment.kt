@@ -24,5 +24,9 @@ class AgendaPacienteFragment : BaseAppFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.agendaPacienteRecyclerView.adapter = adapter
+
+        binding.agendaPacienteFab.setOnClickListener {
+
+        }
     }
 }
