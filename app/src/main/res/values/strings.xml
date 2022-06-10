@@ -53,5 +53,6 @@
     <string name="seleciona_psicologo">Seleciona um psicologo</string>
     <string name="horarios_disponiveis_para_o_dia">Horários disponíveis</string>
     <string name="agendar_sessao">Agendar sessão</string>
+    <string name="horarios_cadastrados">Horários cadastrados</string>
 
 </resources>

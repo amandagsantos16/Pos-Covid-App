@@ -96,4 +96,10 @@
         android:label="@string/agendar_sessao"
         tools:layout="@layout/fragment_seleciona_horario"/>
 
+    <fragment
+        android:id="@+id/horario_cadastrados"
+        android:name="com.amanda.poscovid.ui.fragment.saude.HorariosCadastadosFragment"
+        android:label="@string/horarios_cadastrados"
+        tools:layout="@layout/fragment_horarios_cadastrados"/>
+
 </navigation>
