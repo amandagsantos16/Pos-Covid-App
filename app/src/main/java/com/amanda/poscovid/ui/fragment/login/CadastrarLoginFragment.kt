@@ -1,5 +1,6 @@
 package com.amanda.poscovid.ui.fragment.login
 
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.text.Editable
 import android.view.LayoutInflater
@@ -17,6 +18,7 @@ class CadastrarLoginFragment : BaseAppFragment() {
 
     private lateinit var binding: FragmentCadastrarLoginBinding
     private val viewModel by viewModel<LoginViewModel>()
+    private val progressDialog by lazy { ProgressDialog(context, ProgressDialog.STYLE_HORIZONTAL) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentCadastrarLoginBinding.inflate(layoutInflater)
@@ -28,6 +30,16 @@ class CadastrarLoginFragment : BaseAppFragment() {
         configuraEditTexts()
         configuraBotaoMostrarSenha()
         configuraBotaoCadastrar()
+        configuraProgress()
+    }
+
+    private fun configuraProgress() {
+        viewModel.isLoading.observe(viewLifecycleOwner) { loading ->
+            if (loading)
+                progressDialog.show()
+            else
+                progressDialog.hide()
+        }
     }
 
     private fun configuraBotaoCadastrar() {

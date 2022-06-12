@@ -22,9 +22,10 @@ class LoginViewModel(
     }
 
     fun cadastraConta(conta: NovaConta): LiveData<RespostaWebClient<LoginRetorno>?> {
-        isLoading.value = true
         val liveData = MutableLiveData<RespostaWebClient<LoginRetorno>?>()
+        isLoading.value = true
         client.cadastrarNovoUsuario(conta) { resposta ->
+            isLoading.postValue(false)
             resposta?.dados?.let { loginRetorno ->
                 loginRetorno.accessToken?.let {
                     tokenHelper.accessToken = it
@@ -37,16 +38,16 @@ class LoginViewModel(
                 }
             }
             liveData.postValue(resposta)
-            isLoading.postValue(false)
         }
 
         return liveData
     }
 
     fun fazerLogin(login: UsuarioLogin): LiveData<RespostaWebClient<LoginRetorno>?> {
-        isLoading.value = true
         val liveData = MutableLiveData<RespostaWebClient<LoginRetorno>?>()
+        isLoading.value = true
         client.iniciaSessao(login) { resposta ->
+            isLoading.postValue(false)
             resposta?.dados?.let { loginRetorno ->
                 loginRetorno.accessToken?.let {
                     tokenHelper.accessToken = it
@@ -59,7 +60,6 @@ class LoginViewModel(
                 }
             }
             liveData.postValue(resposta)
-            isLoading.postValue(false)
         }
 
         return liveData
