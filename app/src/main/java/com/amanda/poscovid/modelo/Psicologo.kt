@@ -13,6 +13,6 @@ class Psicologo {
     val usuarioId: String? = null
     val registroValido: Boolean = false
     val usuario: Any? = null
-    val horarios: List<String>? = null
-    val agendamentos: List<Any>? = null
+    val horarios: List<Horario>? = null
+    val agendamentos: List<Agendamento>? = null
 }

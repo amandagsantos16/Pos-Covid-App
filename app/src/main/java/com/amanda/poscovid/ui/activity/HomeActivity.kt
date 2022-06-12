@@ -10,6 +10,7 @@ import android.view.ContextMenu
 import android.view.Menu
 import android.view.View
 import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -73,6 +74,7 @@ class HomeActivity : AppCompatActivity() {
         val headerTextView = headerView.findViewById<TextView>(R.id.nav_header_textView)
 
         if (userPreference.email.isNotEmpty()) {
+            headerTextView.visibility = VISIBLE
             headerTextView.text = userPreference.email
         } else {
             headerTextView.visibility = GONE
