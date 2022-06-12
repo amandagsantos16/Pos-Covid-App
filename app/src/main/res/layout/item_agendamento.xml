@@ -62,18 +62,47 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:gravity="start"
-                android:text="Sessão com Amanda"
+                android:text="@string/titulo_agendamento"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/agendamento_descricao"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="3"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam accumsan dui eu elit vehicula, et pulvinar magna ullamcorper. "
-                android:textSize="16sp" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/agendamento_editar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="@string/editar_horario"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:drawableStartCompat="@drawable/ic_edit"
+                    app:layout_constraintEnd_toStartOf="@id/agendamento_excluir"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/agendamento_excluir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="@string/excluir"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:drawableStartCompat="@drawable/ic_delete"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/agendamento_editar"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

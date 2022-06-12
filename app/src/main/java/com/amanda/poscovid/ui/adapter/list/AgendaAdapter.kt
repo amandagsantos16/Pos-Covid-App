@@ -5,14 +5,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.amanda.poscovid.R
+import com.amanda.poscovid.modelo.Agendamento
 import com.amanda.poscovid.modelo.Consulta
 import com.amanda.poscovid.ui.adapter.viewholder.ConsultaViewHolder
 
 class AgendaAdapter(private val context: Context?) : RecyclerView.Adapter<ConsultaViewHolder>() {
 
-    private val consulta: MutableList<Consulta> = mutableListOf()
+    private val consulta: MutableList<Agendamento> = mutableListOf()
 
-    var clickListener: ((Consulta) -> Unit) = { }
+    var editListener: ((Agendamento) -> Unit) = { }
+
+    var deleteListener: ((Agendamento) -> Unit) = { }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ConsultaViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_agendamento, parent, false)
@@ -21,14 +24,14 @@ class AgendaAdapter(private val context: Context?) : RecyclerView.Adapter<Consul
     }
 
     override fun getItemCount(): Int {
-        return 5
+        return consulta.size
     }
 
     override fun onBindViewHolder(holder: ConsultaViewHolder, position: Int) {
-//        holder.bind(consulta[position], clickListener)
+        holder.bind(consulta[position], editListener, deleteListener)
     }
 
-    fun atualizaLista(consultas: List<Consulta>) {
+    fun atualizaLista(consultas: List<Agendamento>) {
         this.consulta.clear()
         this.consulta.addAll(consultas)
         notifyDataSetChanged()

@@ -3,6 +3,7 @@ package com.amanda.poscovid.api.retrofit
 import com.amanda.poscovid.api.retrofit.RetrofitUtil.getUnsafeOkHttpClient
 import com.amanda.poscovid.api.service.CovidService
 import com.amanda.poscovid.api.service.LoginService
+import com.amanda.poscovid.api.service.PacienteService
 import com.amanda.poscovid.api.service.PsicologoService
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import okhttp3.OkHttpClient
@@ -46,4 +47,6 @@ class RetrofitInicializador {
     val loginService by lazy { retrofit.create(LoginService::class.java) }
 
     val psicologoService by lazy { retrofit.create(PsicologoService::class.java) }
+
+    val pacienteService by lazy { retrofit.create(PacienteService::class.java) }
 }

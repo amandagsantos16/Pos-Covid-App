@@ -54,5 +54,9 @@
     <string name="horarios_disponiveis_para_o_dia">Horários disponíveis</string>
     <string name="agendar_sessao">Agendar sessão</string>
     <string name="horarios_cadastrados">Horários cadastrados</string>
+    <string name="titulo_agendamento">Sessão com %s</string>
+    <string name="editar_horario">Editar horário</string>
+    <string name="excluir">Excluir</string>
+    <string name="mensagem_agenda_vazia">Você não possui sessões agendadas</string>
 
 </resources>

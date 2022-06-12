@@ -16,6 +16,20 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/item_agendamento" />
 
+    <TextView
+        android:id="@+id/agenda_paciente_empty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:text="@string/mensagem_agenda_vazia"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/agenda_paciente_fab"
         android:layout_width="wrap_content"
