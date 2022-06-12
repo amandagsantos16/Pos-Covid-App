@@ -1,5 +1,6 @@
 package com.amanda.poscovid.di
 
+import com.amanda.poscovid.ui.viewModel.CadastrarPsicologoViewModel
 import com.amanda.poscovid.ui.viewModel.CovidViewModel
 import com.amanda.poscovid.ui.viewModel.LoginViewModel
 import com.amanda.poscovid.ui.viewModel.NoticiaViewModel
@@ -10,4 +11,5 @@ val viewModelModule = module {
     viewModel<CovidViewModel> { CovidViewModel(get()) }
     viewModel<NoticiaViewModel> { NoticiaViewModel(get()) }
     viewModel<LoginViewModel> { LoginViewModel(get(), get(), get()) }
+    viewModel<CadastrarPsicologoViewModel> { CadastrarPsicologoViewModel(get()) }
 }

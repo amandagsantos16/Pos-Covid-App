@@ -1,15 +1,15 @@
 package com.amanda.poscovid.api.client
 
-import com.amanda.poscovid.api.retrofit.RetrofitInicializador
 import com.amanda.poscovid.api.modelo.DetalheWebClient
 import com.amanda.poscovid.api.modelo.RespostaWebClient
+import com.amanda.poscovid.api.retrofit.RetrofitInicializador
+import com.amanda.poscovid.preferences.ITokenPreferenceHelper
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.lang.Exception
 
-open class WebClient {
+open class WebClient(private val manager : ITokenPreferenceHelper? = null) {
 
     val retrofit = RetrofitInicializador()
 
@@ -40,7 +40,6 @@ open class WebClient {
     }
 
     fun bearerToken(): String {
-//        return "bearer ${sessao.preferences.getString(TOKEN, null)}"
-        return ""
+        return "bearer ${manager?.accessToken}"
     }
 }
