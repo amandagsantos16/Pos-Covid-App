@@ -8,7 +8,7 @@ import com.amanda.poscovid.modelo.Psicologo
 
 class PsicologoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    fun bindData(psicologo: Psicologo, clickListener: (() -> Unit) = { }) {
+    fun bindData(psicologo: Psicologo, clickListener: ((Psicologo) -> Unit) = { }) {
         val titulo = itemView.findViewById<TextView>(R.id.item_psicologo_titulo)
         val descricao = itemView.findViewById<TextView>(R.id.item_psicologo_descricao)
         val especialidade = itemView.findViewById<TextView>(R.id.item_psicologo_especialidade)
@@ -16,5 +16,6 @@ class PsicologoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         titulo.text = psicologo.nome
         descricao.text = psicologo.resumo
         especialidade.text = psicologo.especializacoes
+        itemView.setOnClickListener { clickListener(psicologo) }
     }
 }

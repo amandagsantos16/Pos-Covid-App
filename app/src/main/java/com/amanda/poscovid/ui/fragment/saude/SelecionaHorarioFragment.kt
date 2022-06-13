@@ -1,20 +1,23 @@
 package com.amanda.poscovid.ui.fragment.saude
 
-import android.icu.text.DateFormat.DAY
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.navArgs
 import com.amanda.poscovid.databinding.FragmentSelecionaHorarioBinding
 import com.amanda.poscovid.extension.showDataPickerDialog
 import com.amanda.poscovid.ui.adapter.list.SelecionaHorarioAdapter
 import com.amanda.poscovid.ui.fragment.BaseAppFragment
+import com.amanda.poscovid.ui.fragment.EstudosDetalhesFragmentArgs
 import java.text.SimpleDateFormat
 import java.util.*
 
 class SelecionaHorarioFragment : BaseAppFragment() {
 
+    private val args by navArgs<SelecionaHorarioFragmentArgs>()
+    private val psicologo by lazy { args.psicologo }
     private lateinit var binding: FragmentSelecionaHorarioBinding
     private val adapter by lazy { SelecionaHorarioAdapter(context) }
 

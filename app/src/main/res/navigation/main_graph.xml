@@ -94,7 +94,11 @@
         android:id="@+id/seleciona_horario"
         android:name="com.amanda.poscovid.ui.fragment.saude.SelecionaHorarioFragment"
         android:label="@string/agendar_sessao"
-        tools:layout="@layout/fragment_seleciona_horario"/>
+        tools:layout="@layout/fragment_seleciona_horario">
+        <argument
+            android:name="psicologo"
+            app:argType="com.amanda.poscovid.modelo.Psicologo" />
+    </fragment>
 
     <fragment
         android:id="@+id/horario_cadastrados"

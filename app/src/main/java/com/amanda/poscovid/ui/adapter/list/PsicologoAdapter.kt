@@ -12,7 +12,7 @@ class PsicologoAdapter(private val context: Context?) : RecyclerView.Adapter<Psi
 
     private val psicologos: MutableList<Psicologo> = mutableListOf()
 
-    var clickListener: (() -> Unit) = { }
+    var clickListener: ((Psicologo) -> Unit) = { }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PsicologoViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_psicologo, parent, false)

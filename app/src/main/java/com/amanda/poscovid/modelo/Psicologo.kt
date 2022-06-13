@@ -1,9 +1,10 @@
 package com.amanda.poscovid.modelo
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import java.io.Serializable
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-class Psicologo {
+class Psicologo : Serializable {
     val id: String? = null
     val nome: String? = null
     val dataNascimento: String? = null
