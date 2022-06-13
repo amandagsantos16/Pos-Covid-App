@@ -11,6 +11,6 @@ class PacienteWebClient(tokenManager: ITokenPreferenceHelper, private val userMa
     private val service = retrofit.pacienteService
 
     fun getAgendamentos(retorno: (RespostaWebClient<List<Agendamento>>?) -> Unit) {
-        service.buscaAgendamentos(bearerToken(), userManager.id).executaRequest(retorno)
+        service.buscaAgendamentos(bearerToken(), userManager.pacienteId).executaRequest(retorno)
     }
 }

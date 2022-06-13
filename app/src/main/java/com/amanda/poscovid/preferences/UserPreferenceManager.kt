@@ -18,6 +18,18 @@ open class UserPreferenceManager constructor(context: Context) : IUserPreference
             preferences[ID] = value
         }
 
+    override var pacienteId: String
+        get() = preferences[PACIENTE] ?: String()
+        set(value) {
+            preferences[PACIENTE] = value
+        }
+
+    override var psicologoId: String
+        get() = preferences[PSICOLOGO] ?: String()
+        set(value) {
+            preferences[PSICOLOGO] = value
+        }
+
     override var email: String
         get() = preferences[EMAIL] ?: String()
         set(value) {
@@ -27,9 +39,9 @@ open class UserPreferenceManager constructor(context: Context) : IUserPreference
 
     companion object {
         private const val PREFERENCES_KEY = "CHAVE_ORION_USER_PREFERENCES"
-        private const val NOME = "nome"
+        private const val PACIENTE = "paciente"
         private const val EMAIL = "email"
-        private const val SENHA = "senha"
+        private const val PSICOLOGO = "psicologo"
         private const val ID = "id"
         private const val CPF = "cpf"
         private const val CELULAR = "celular"

@@ -33,6 +33,12 @@ class LoginViewModel(
                 loginRetorno.usuarioToken?.id?.let {
                     userHelper.id = it
                 }
+                loginRetorno.usuarioToken?.pacienteId?.let {
+                    userHelper.pacienteId = it
+                }
+                loginRetorno.usuarioToken?.psicologoId?.let {
+                    userHelper.psicologoId = it
+                }
                 loginRetorno.usuarioToken?.email?.let {
                     userHelper.email = it
                 }
@@ -54,6 +60,12 @@ class LoginViewModel(
                 }
                 loginRetorno.usuarioToken?.id?.let {
                     userHelper.id = it
+                }
+                loginRetorno.usuarioToken?.pacienteId?.let {
+                    userHelper.pacienteId = it
+                }
+                loginRetorno.usuarioToken?.psicologoId?.let {
+                    userHelper.psicologoId = it
                 }
                 loginRetorno.usuarioToken?.email?.let {
                     userHelper.email = it

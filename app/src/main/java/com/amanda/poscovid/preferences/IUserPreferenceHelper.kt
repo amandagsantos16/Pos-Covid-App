@@ -6,5 +6,9 @@ interface IUserPreferenceHelper {
 
     var id: String
 
+    var pacienteId: String
+
+    var psicologoId: String
+
     var email: String
 }

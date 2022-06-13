@@ -81,6 +81,7 @@ class CadastrarLoginFragment : BaseAppFragment() {
     private fun instanciaConta(): NovaConta {
         return NovaConta().also {
             it.email = binding.cadastrarLoginEmail.text.toString()
+            it.nome = binding.cadastrarLoginNome.text.toString()
             it.senha = binding.cadastrarLoginSenha.text.toString()
             it.senhaConfirmacao = binding.cadastrarLoginSenhaConfirmar.text.toString()
         }

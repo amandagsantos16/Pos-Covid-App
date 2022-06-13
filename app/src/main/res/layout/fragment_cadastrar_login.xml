@@ -15,7 +15,7 @@
         android:gravity="center"
         android:text="@string/programa_pos_covid"
         android:textColor="@color/colorPrimaryVariant"
-        android:textSize="36sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,8 +23,8 @@
 
     <ImageView
         android:id="@+id/cadastrar_login_covid_imageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
         android:layout_marginTop="8dp"
         android:scaleType="centerCrop"
         android:src="@drawable/image_virus"
@@ -33,18 +33,30 @@
         app:layout_constraintTop_toBottomOf="@id/cadastrar_login_name_textView" />
 
     <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/cadastrar_login_nome"
+        style="@style/LoginEditText"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="32dp"
+        android:hint="@string/nome_negrito"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cadastrar_login_covid_imageView" />
+
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/cadastrar_login_email"
         style="@style/LoginEditText"
         android:layout_width="0dp"
         android:layout_height="52dp"
         android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:hint="@string/email_negrito"
         android:inputType="textEmailAddress"
-        android:maxLength="25"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cadastrar_login_covid_imageView" />
+        app:layout_constraintTop_toBottomOf="@id/cadastrar_login_nome" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/cadastrar_login_senha"
@@ -120,9 +132,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:indeterminate="true"
-        android:visibility="gone"
         android:indeterminateTint="@color/colorPrimaryVariant"
         android:indeterminateTintMode="src_atop"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
