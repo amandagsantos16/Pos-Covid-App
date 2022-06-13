@@ -22,4 +22,14 @@ class HorarioViewModel(private val client: PsicologoWebClient) : ViewModel() {
         }
         return liveData
     }
+
+    fun salvaHorarios(dia: Int, horarios: List<String>): LiveData<RespostaWebClient<List<Horario>>?> {
+        val liveData = MutableLiveData<RespostaWebClient<List<Horario>>?>()
+        isLoading.value = true
+        client.salvaHorarios(dia, horarios) { resposta ->
+            isLoading.postValue(false)
+            liveData.postValue(resposta)
+        }
+        return liveData
+    }
 }

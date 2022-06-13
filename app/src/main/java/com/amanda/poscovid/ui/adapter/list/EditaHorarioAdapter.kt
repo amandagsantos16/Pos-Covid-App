@@ -9,7 +9,7 @@ import com.amanda.poscovid.ui.adapter.viewholder.EditaHorarioViewHolder
 
 class EditaHorarioAdapter(private val context: Context?) : RecyclerView.Adapter<EditaHorarioViewHolder>() {
 
-    private val horarios: MutableList<String> = mutableListOf()
+    val horarios: MutableList<String> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EditaHorarioViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.list_item_horario, parent, false)
