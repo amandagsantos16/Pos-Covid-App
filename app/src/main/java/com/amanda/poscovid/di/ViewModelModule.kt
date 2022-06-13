@@ -8,6 +8,7 @@ val viewModelModule = module {
     viewModel<CovidViewModel> { CovidViewModel(get()) }
     viewModel<NoticiaViewModel> { NoticiaViewModel(get()) }
     viewModel<LoginViewModel> { LoginViewModel(get(), get(), get()) }
-    viewModel<CadastrarPsicologoViewModel> { CadastrarPsicologoViewModel(get()) }
+    viewModel<CadastrarPsicologoViewModel> { CadastrarPsicologoViewModel(get(), get()) }
     viewModel<AgendaPacienteViewModel> { AgendaPacienteViewModel(get()) }
+    viewModel<SelecionaPsicologoViewModel> { SelecionaPsicologoViewModel(get()) }
 }

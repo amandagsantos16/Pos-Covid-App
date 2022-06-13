@@ -5,11 +5,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.amanda.poscovid.R
+import com.amanda.poscovid.modelo.Psicologo
 import com.amanda.poscovid.ui.adapter.viewholder.PsicologoViewHolder
 
 class PsicologoAdapter(private val context: Context?) : RecyclerView.Adapter<PsicologoViewHolder>() {
 
-    private val psicologos: MutableList<Any> = mutableListOf()
+    private val psicologos: MutableList<Psicologo> = mutableListOf()
 
     var clickListener: (() -> Unit) = { }
 
@@ -20,14 +21,14 @@ class PsicologoAdapter(private val context: Context?) : RecyclerView.Adapter<Psi
     }
 
     override fun getItemCount(): Int {
-        return 5
+        return psicologos.size
     }
 
     override fun onBindViewHolder(holder: PsicologoViewHolder, position: Int) {
-        holder.itemView.setOnClickListener { clickListener() }
+        holder.bindData(psicologos[position], clickListener)
     }
 
-    fun atualizaLista(lista: List<Any>) {
+    fun atualizaLista(lista: List<Psicologo>) {
         this.psicologos.clear()
         this.psicologos.addAll(lista)
         notifyDataSetChanged()
