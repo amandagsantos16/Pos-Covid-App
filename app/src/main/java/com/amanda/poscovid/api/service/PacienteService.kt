@@ -1,13 +1,11 @@
 package com.amanda.poscovid.api.service
 
+import com.amanda.poscovid.api.modelo.PostAgendamento
 import com.amanda.poscovid.modelo.Agendamento
 import com.amanda.poscovid.modelo.Horario
 import com.amanda.poscovid.modelo.Psicologo
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface PacienteService {
 
@@ -16,6 +14,12 @@ interface PacienteService {
         @Header("Authorization") authorization: String,
         @Query("pacienteId") pacienteId: String
     ): Call<List<Agendamento>>
+
+    @POST("api/pacientes/agendamentos")
+    fun agendar(
+        @Header("Authorization") authorization: String,
+        @Body agendamento: PostAgendamento
+    ): Call<Any>
 
     @GET("api/psicologos")
     fun buscaTodosPsicologos(

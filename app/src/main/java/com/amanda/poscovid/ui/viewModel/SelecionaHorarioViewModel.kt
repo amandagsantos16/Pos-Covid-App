@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.amanda.poscovid.api.client.PacienteWebClient
 import com.amanda.poscovid.api.modelo.RespostaWebClient
 import com.amanda.poscovid.modelo.Horario
+import com.amanda.poscovid.modelo.Psicologo
 
 class SelecionaHorarioViewModel(private val client: PacienteWebClient) : ViewModel() {
 
@@ -17,6 +18,16 @@ class SelecionaHorarioViewModel(private val client: PacienteWebClient) : ViewMod
         val liveData = MutableLiveData<RespostaWebClient<List<Horario>>?>()
         isLoading.value = true
         client.getHorariosDisponiveis(dia, psicologoId) { resposta ->
+            isLoading.postValue(false)
+            liveData.postValue(resposta)
+        }
+        return liveData
+    }
+
+    fun agendarHorario(psicologo: Psicologo, horario: Horario, data: String) : LiveData<RespostaWebClient<Any>?>{
+        val liveData = MutableLiveData<RespostaWebClient<Any>?>()
+        isLoading.value = true
+        client.agendarHorario(psicologo, horario, data) { resposta ->
             isLoading.postValue(false)
             liveData.postValue(resposta)
         }

@@ -48,7 +48,20 @@ class SelecionaHorarioFragment : BaseAppFragment() {
     private fun configuraAdapter() {
         binding.selecionaHorarioRecyclerView.adapter = adapter
         adapter.clickListener = {
+            agendar(it)
+        }
+    }
 
+    private fun agendar(horario: Horario) {
+        viewModel.agendarHorario(psicologo, horario, calendar.time.formatToApi()).observe(viewLifecycleOwner) {
+            it?.apply {
+                dados?.let {
+                    mostrarAlerta("Horario agendado com sucesso")
+                }
+                detalhes?.let {
+                    mostrarAlerta(detalhes.error ?: String())
+                }
+            } ?: mostrarAlerta(getString(R.string.erro_padrao_api))
         }
     }
 
