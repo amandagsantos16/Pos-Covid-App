@@ -62,5 +62,6 @@
     <string name="horarios_cadastrados_disponiveis">Horários cadastrados disponíveis</string>
     <string name="salvar">Salvar alterações</string>
     <string name="adicionar_horário">Incluir horário</string>
+    <string name="psicologo_sem_horario_para_o_dia">Psicologo não possui horário dísponivel para esse dia</string>
 
 </resources>

@@ -1,6 +1,7 @@
 package com.amanda.poscovid.api.service
 
 import com.amanda.poscovid.modelo.Agendamento
+import com.amanda.poscovid.modelo.Horario
 import com.amanda.poscovid.modelo.Psicologo
 import retrofit2.Call
 import retrofit2.http.GET
@@ -21,4 +22,11 @@ interface PacienteService {
         @Header("Authorization") authorization: String,
         @Query("usuarioId") pacienteId: String
     ): Call<List<Psicologo>>
+
+    @GET("api/psicologos/horarios-por-data")
+    fun buscaHorariosDisponiveis(
+        @Header("Authorization") authorization: String,
+        @Query("data") data: String,
+        @Query("psicologoId") psicologoId: String
+    ): Call<List<Horario>>
 }

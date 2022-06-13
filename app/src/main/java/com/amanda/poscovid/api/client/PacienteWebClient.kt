@@ -2,6 +2,7 @@ package com.amanda.poscovid.api.client
 
 import com.amanda.poscovid.api.modelo.RespostaWebClient
 import com.amanda.poscovid.modelo.Agendamento
+import com.amanda.poscovid.modelo.Horario
 import com.amanda.poscovid.modelo.Psicologo
 import com.amanda.poscovid.preferences.ITokenPreferenceHelper
 import com.amanda.poscovid.preferences.IUserPreferenceHelper
@@ -17,5 +18,9 @@ class PacienteWebClient(tokenManager: ITokenPreferenceHelper, private val userMa
 
     fun getPsicologos(retorno: (RespostaWebClient<List<Psicologo>>?) -> Unit) {
         service.buscaTodosPsicologos(bearerToken(), userManager.id).executaRequest(retorno)
+    }
+
+    fun getHorariosDisponiveis(data: String, psicologoId: String, retorno: (RespostaWebClient<List<Horario>>?) -> Unit) {
+        service.buscaHorariosDisponiveis(bearerToken(), data, psicologoId).executaRequest(retorno)
     }
 }
