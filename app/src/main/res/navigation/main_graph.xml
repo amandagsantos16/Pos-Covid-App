@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_espaco_saude_to_agenda_paciente"
             app:destination="@id/agenda_paciente" />
+        <action
+            android:id="@+id/action_espaco_saude_to_area_psicologo"
+            app:destination="@id/area_psicologo" />
     </fragment>
 
     <fragment
@@ -105,5 +108,15 @@
         android:name="com.amanda.poscovid.ui.fragment.saude.HorariosCadastadosFragment"
         android:label="@string/horarios_cadastrados"
         tools:layout="@layout/fragment_horarios_cadastrados"/>
+
+    <fragment
+        android:id="@+id/area_psicologo"
+        android:name="com.amanda.poscovid.ui.fragment.saude.AreaPsicologoFragment"
+        android:label="@string/area_psicologo"
+        tools:layout="@layout/fragment_area_psicologo">
+        <action
+            android:id="@+id/action_area_psicologo_to_horario_cadastrados"
+            app:destination="@id/horario_cadastrados" />
+    </fragment>
 
 </navigation>

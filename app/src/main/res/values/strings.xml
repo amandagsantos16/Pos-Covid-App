@@ -58,5 +58,7 @@
     <string name="editar_horario">Editar horário</string>
     <string name="excluir">Excluir</string>
     <string name="mensagem_agenda_vazia">Você não possui sessões agendadas</string>
+    <string name="area_psicologo">Área do psicologo</string>
+    <string name="horarios_cadastrados_disponiveis">Horários cadastrados disponíveis</string>
 
 </resources>

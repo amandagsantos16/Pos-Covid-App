@@ -6,10 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.amanda.poscovid.databinding.FragmentEspacoSaudeBinding
+import com.amanda.poscovid.preferences.IUserPreferenceHelper
+import org.koin.android.ext.android.inject
 
 class EspacoSaudeFragment : BaseAppFragment() {
 
     private lateinit var binding: FragmentEspacoSaudeBinding
+    private val userPreferenceManager: IUserPreferenceHelper by inject()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         (activity as AppCompatActivity).supportActionBar?.show()
@@ -26,9 +29,13 @@ class EspacoSaudeFragment : BaseAppFragment() {
     private fun setOnClicks() {
         binding.serPsicologo.setOnClickListener {
             navigateTo(
-                EspacoSaudeFragmentDirections.actionEspacoSaudeToCadastrarPsicologo()
+                if (userPreferenceManager.psicologoId.isEmpty())
+                    EspacoSaudeFragmentDirections.actionEspacoSaudeToCadastrarPsicologo()
+                else
+                    EspacoSaudeFragmentDirections.actionEspacoSaudeToAreaPsicologo()
             )
         }
+
         binding.serPaciente.setOnClickListener {
             navigateTo(
                 EspacoSaudeFragmentDirections.actionEspacoSaudeToAgendaPaciente()
