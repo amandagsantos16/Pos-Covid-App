@@ -24,7 +24,18 @@ class HorariosCadastadosFragment : BaseAppFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        configuraAdapter()
+    }
+
+    private fun configuraAdapter() {
         adapter.atualizaLista(resources.getStringArray(R.array.dias).asList())
         binding.horariosCadastradosRecyclerView.adapter = adapter
+        adapter.clickListener = {
+            editaHorario(it)
+        }
+    }
+
+    private fun editaHorario(dia: Int) {
+        navigateTo(HorariosCadastadosFragmentDirections.actionHorarioCadastradosToEditaHorario(dia))
     }
 }

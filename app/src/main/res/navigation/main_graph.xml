@@ -107,7 +107,11 @@
         android:id="@+id/horario_cadastrados"
         android:name="com.amanda.poscovid.ui.fragment.saude.HorariosCadastadosFragment"
         android:label="@string/horarios_cadastrados"
-        tools:layout="@layout/fragment_horarios_cadastrados"/>
+        tools:layout="@layout/fragment_horarios_cadastrados">
+        <action
+            android:id="@+id/action_horario_cadastrados_to_edita_horario"
+            app:destination="@id/edita_horario" />
+    </fragment>
 
     <fragment
         android:id="@+id/area_psicologo"
@@ -118,5 +122,14 @@
             android:id="@+id/action_area_psicologo_to_horario_cadastrados"
             app:destination="@id/horario_cadastrados" />
     </fragment>
+
+    <dialog
+        android:id="@+id/edita_horario"
+        android:name="com.amanda.poscovid.ui.fragment.saude.EditaHorarioFragmentDialog"
+        tools:layout="@layout/dialog_edita_horario">
+        <argument
+            android:name="dia"
+            app:argType="integer" />
+    </dialog>
 
 </navigation>

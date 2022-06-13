@@ -11,4 +11,5 @@ val viewModelModule = module {
     viewModel<CadastrarPsicologoViewModel> { CadastrarPsicologoViewModel(get(), get()) }
     viewModel<AgendaPacienteViewModel> { AgendaPacienteViewModel(get()) }
     viewModel<SelecionaPsicologoViewModel> { SelecionaPsicologoViewModel(get()) }
+    viewModel<HorarioViewModel> { HorarioViewModel(get()) }
 }

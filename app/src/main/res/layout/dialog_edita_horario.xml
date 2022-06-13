@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:minWidth="300dp">
+
+    <ImageView
+        android:id="@+id/edita_horario_fechar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="8dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/edita_horario_textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/horarios_cadastrados"
+        android:textAlignment="center"
+        android:textColor="#131A22"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edita_horario_fechar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/edita_horario_recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="400dp"
+        android:minHeight="50dp"
+        android:layout_marginBottom="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/edita_horario_salvar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edita_horario_textView"
+        tools:itemCount="7"
+        tools:listitem="@layout/list_item_horario" />
+
+    <TextView
+        android:id="@+id/edita_horario_adicionar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:background="?android:selectableItemBackground"
+        android:drawableTint="?attr/colorControlNormal"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="@string/adicionar_horário"
+        android:textColor="#131A22"
+        android:textSize="18sp"
+        app:drawableStartCompat="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/edita_horario_salvar"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/edita_horario_salvar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:background="?android:selectableItemBackground"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="@string/salvar"
+        android:textColor="#131A22"
+        android:textSize="18sp"
+        app:drawableStartCompat="@drawable/ic_delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/edita_horario_adicionar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
