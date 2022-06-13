@@ -4,8 +4,9 @@ import com.amanda.poscovid.api.modelo.LoginRetorno
 import com.amanda.poscovid.api.modelo.RespostaWebClient
 import com.amanda.poscovid.modelo.NovaConta
 import com.amanda.poscovid.modelo.UsuarioLogin
+import com.amanda.poscovid.preferences.IUserPreferenceHelper
 
-class UsuarioWebClient : WebClient() {
+class UsuarioWebClient(private val userManager: IUserPreferenceHelper) : WebClient() {
 
     private val service = retrofit.loginService
 
@@ -18,24 +19,9 @@ class UsuarioWebClient : WebClient() {
         service.iniciaLogin(usuarioLogin)
             .executaRequest(retorno)
     }
-//
-//    fun recuperarSenha(cpf: String, retorno: (RespostaWebClient<String>?) -> Unit) {
-//        service.recuperarSenha(cpf).executaRequest { respota ->
-//            var email: String? = null
-//            respota?.dados?.let {
-//                email = JSONObject(it.string()).optString("email")
-//            }
-//            retorno(RespostaWebClient(email, respota?.detalhes))
-//        }
-//    }
-//
-//    fun validarCodigoDeRecuperacao(validarCodigo: ValidarCodigo, retorno: (RespostaWebClient<Token>?) -> Unit) {
-//        service.validarCodigo(validarCodigo)
-//            .executaRequest(retorno)
-//    }
-//
-//    fun alterarSenha(alterarSenha: AlterarSenha, token: Token, retorno: (RespostaWebClient<Void>?) -> Unit) {
-//        service.alterarSenha(token = "Bearer ${token.accessToken}", alterarSenha = alterarSenha)
-//            .executaRequest(retorno)
-//    }
+
+    fun buscaNotificacoes(retorno: (RespostaWebClient<List<Any>>?) -> Unit) {
+        service.buscaNotificacoes(userManager.id)
+            .executaRequest(retorno)
+    }
 }

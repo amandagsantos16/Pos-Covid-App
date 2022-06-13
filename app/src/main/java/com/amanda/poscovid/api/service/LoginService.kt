@@ -5,7 +5,9 @@ import com.amanda.poscovid.modelo.NovaConta
 import com.amanda.poscovid.modelo.UsuarioLogin
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface LoginService {
 
@@ -18,20 +20,10 @@ interface LoginService {
     fun iniciaLogin(
         @Body usuarioLogin: UsuarioLogin
     ): Call<LoginRetorno>
-//
-//    @POST("Users/RecuperarSenha")
-//    fun recuperarSenha(
-//        @Query("cpf") cpf: String
-//    ): Call<ResponseBody>
-//
-//    @POST("Users/ValidarCodigo")
-//    fun validarCodigo(
-//        @Body validarCodigo: ValidarCodigo
-//    ): Call<Token>
-//
-//    @POST("Users/AlterarSenha")
-//    fun alterarSenha(
-//        @Body alterarSenha: AlterarSenha
-//    ): Call<Void>
+
+    @GET("api/notificacoes")
+    fun buscaNotificacoes(
+        @Query("usuarioId") usuarioId: String
+    ): Call<List<Any>>
 
 }
