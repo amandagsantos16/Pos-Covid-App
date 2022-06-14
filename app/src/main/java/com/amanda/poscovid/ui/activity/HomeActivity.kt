@@ -102,6 +102,10 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.home, menu)
         notificacaoItem = menu.findItem(R.id.menu_notificacao)
+        notificacaoItem.setOnMenuItemClickListener {
+            viewModel.notificacoesLidas()
+            true
+        }
         validMenuItem()
         viewModel.temNotificacao.observe(this) {
             notificacaoItem.setIcon(if (it) R.drawable.ic_notification_active else R.drawable.ic_notification)

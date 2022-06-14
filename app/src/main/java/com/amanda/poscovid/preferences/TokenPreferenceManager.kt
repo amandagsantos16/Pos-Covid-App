@@ -18,10 +18,15 @@ open class TokenPreferenceManager constructor(context: Context) : ITokenPreferen
             preferences[TOKEN_ACCESS] = value
         }
 
+    override var notificacoes: Int
+        get() = preferences[NOTIFICACOES] ?: 0
+        set(value) {
+            preferences[NOTIFICACOES] = value
+        }
+
     companion object {
         private const val PREFERENCES_KEY = "CHAVE_ORION_TOKEN_PREFERENCES"
-        private const val TOKEN_CREATED = "created"
-        private const val TOKEN_EXPIR = "expiration"
+        private const val NOTIFICACOES = "notificacoes"
         private const val TOKEN_ACCESS = "accessToken"
     }
 }
