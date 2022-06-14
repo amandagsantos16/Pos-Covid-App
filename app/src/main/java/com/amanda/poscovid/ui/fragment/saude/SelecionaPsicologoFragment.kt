@@ -56,7 +56,7 @@ class SelecionaPsicologoFragment : BaseAppFragment() {
         binding.selecionaPsicologoRecyclerView.adapter = adapter
         adapter.clickListener = {
             navigateTo(
-                SelecionaPsicologoFragmentDirections.actionSelecionaPsicologoToSelecionaHorario(it)
+                SelecionaPsicologoFragmentDirections.actionSelecionaPsicologoToSelecionaHorario(it, null, false)
             )
         }
     }

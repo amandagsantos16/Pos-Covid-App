@@ -1,13 +1,13 @@
 package com.amanda.poscovid.api.client
 
 import com.amanda.poscovid.api.modelo.PostAgendamento
+import com.amanda.poscovid.api.modelo.PutAgendamento
 import com.amanda.poscovid.api.modelo.RespostaWebClient
 import com.amanda.poscovid.modelo.Agendamento
 import com.amanda.poscovid.modelo.Horario
 import com.amanda.poscovid.modelo.Psicologo
 import com.amanda.poscovid.preferences.ITokenPreferenceHelper
 import com.amanda.poscovid.preferences.IUserPreferenceHelper
-import okhttp3.internal.userAgent
 
 class PacienteWebClient(tokenManager: ITokenPreferenceHelper, private val userManager: IUserPreferenceHelper) : WebClient(tokenManager) {
 
@@ -33,6 +33,15 @@ class PacienteWebClient(tokenManager: ITokenPreferenceHelper, private val userMa
             it.pacienteId = userManager.pacienteId
         }
         service.agendar(bearerToken(), agendamento).executaRequest(retorno)
+    }
+
+    fun alterarAgendamento(agendamento: Agendamento, horario: Horario, data: String, retorno: (RespostaWebClient<Void>?) -> Unit) {
+        val putAgendamento = PutAgendamento().also {
+            it.data = data
+            it.horarioId = horario.id
+            it.id = agendamento.id
+        }
+        service.alterarAgendamento(bearerToken(), putAgendamento).executaRequest(retorno)
     }
 
     fun deletarAgendamento(agendamentoId: String, retorno: (RespostaWebClient<Void>?) -> Unit) {

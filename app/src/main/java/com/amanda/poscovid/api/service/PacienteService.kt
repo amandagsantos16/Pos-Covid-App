@@ -1,6 +1,7 @@
 package com.amanda.poscovid.api.service
 
 import com.amanda.poscovid.api.modelo.PostAgendamento
+import com.amanda.poscovid.api.modelo.PutAgendamento
 import com.amanda.poscovid.modelo.Agendamento
 import com.amanda.poscovid.modelo.Horario
 import com.amanda.poscovid.modelo.Psicologo
@@ -20,6 +21,12 @@ interface PacienteService {
         @Header("Authorization") authorization: String,
         @Body agendamento: PostAgendamento
     ): Call<Any>
+
+    @PUT("api/pacientes/agendamentos")
+    fun alterarAgendamento(
+        @Header("Authorization") authorization: String,
+        @Body agendamento: PutAgendamento
+    ): Call<Void>
 
     @DELETE("api/pacientes/agendamentos")
     fun deletarAgendamento(

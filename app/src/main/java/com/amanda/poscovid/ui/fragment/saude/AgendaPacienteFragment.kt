@@ -87,7 +87,9 @@ class AgendaPacienteFragment : BaseAppFragment() {
     }
 
     private fun editarHorario(agendamento: Agendamento) {
-        //TODO
+        navigateTo(
+            AgendaPacienteFragmentDirections.actionAgendaPacienteToSelecionaHorario(agendamento.psicologo!!, agendamento, false)
+        )
     }
 
     private fun configuraFab() {

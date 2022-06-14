@@ -10,20 +10,18 @@ import androidx.core.view.isVisible
 import androidx.navigation.fragment.navArgs
 import com.amanda.poscovid.R
 import com.amanda.poscovid.databinding.FragmentSelecionaHorarioBinding
-import com.amanda.poscovid.extension.formatToApi
-import com.amanda.poscovid.extension.formatToUi
-import com.amanda.poscovid.extension.showDataPickerDialog
+import com.amanda.poscovid.extension.*
 import com.amanda.poscovid.modelo.Horario
 import com.amanda.poscovid.ui.adapter.list.SelecionaHorarioAdapter
 import com.amanda.poscovid.ui.fragment.BaseAppFragment
 import com.amanda.poscovid.ui.viewModel.SelecionaHorarioViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.text.SimpleDateFormat
 import java.util.*
 
 class SelecionaHorarioFragment : BaseAppFragment() {
 
     private val args by navArgs<SelecionaHorarioFragmentArgs>()
-    private val psicologo by lazy { args.psicologo }
     private lateinit var binding: FragmentSelecionaHorarioBinding
     private val adapter by lazy { SelecionaHorarioAdapter(context) }
     private val progressDialog by lazy { ProgressDialog(context, ProgressDialog.STYLE_HORIZONTAL) }
@@ -48,15 +46,29 @@ class SelecionaHorarioFragment : BaseAppFragment() {
     private fun configuraAdapter() {
         binding.selecionaHorarioRecyclerView.adapter = adapter
         adapter.clickListener = {
-            agendar(it)
+            if (args.agendamento == null) {
+                agendar(it)
+            } else {
+                alterarAgendamento(it)
+            }
+        }
+    }
+
+    private fun alterarAgendamento(horario: Horario) {
+        viewModel.alterarAgendamento(args.agendamento!!, horario, calendar.time.formatToApi()).observe(viewLifecycleOwner) {
+            it?.apply {
+                detalhes?.let {
+                    mostrarAlerta(detalhes.error ?: String())
+                } ?: mostrarAlerta("Agendamento alterado com sucesso. Aguarde a confirmação") { navController.popBackStack() }
+            } ?: mostrarAlerta(getString(R.string.erro_padrao_api))
         }
     }
 
     private fun agendar(horario: Horario) {
-        viewModel.agendarHorario(psicologo, horario, calendar.time.formatToApi()).observe(viewLifecycleOwner) {
+        viewModel.agendarHorario(args.psicologo, horario, calendar.time.formatToApi()).observe(viewLifecycleOwner) {
             it?.apply {
                 dados?.let {
-                    mostrarAlerta("Horario agendado com sucesso")
+                    mostrarAlerta("Agendamento cadastrado com sucesso. Aguarde a confirmação") { navController.popBackStack() }
                 }
                 detalhes?.let {
                     mostrarAlerta(detalhes.error ?: String())
@@ -66,7 +78,7 @@ class SelecionaHorarioFragment : BaseAppFragment() {
     }
 
     private fun getHorarios() {
-        viewModel.getHorariosCadastrados(calendar.time.formatToApi(), psicologo?.id ?: "").observe(viewLifecycleOwner) {
+        viewModel.getHorariosCadastrados(calendar.time.formatToApi(), args.psicologo.id ?: "").observe(viewLifecycleOwner) {
             it?.apply {
                 dados?.let {
                     atualizaAdapter(it)

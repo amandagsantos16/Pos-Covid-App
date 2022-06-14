@@ -81,6 +81,9 @@
         <action
             android:id="@+id/action_agenda_paciente_to_seleciona_psicologo"
             app:destination="@id/seleciona_psicologo" />
+        <action
+            android:id="@+id/action_agenda_paciente_to_seleciona_horario"
+            app:destination="@id/seleciona_horario" />
     </fragment>
 
     <fragment
@@ -90,7 +93,9 @@
         tools:layout="@layout/fragment_seleciona_psicologo">
         <action
             android:id="@+id/action_seleciona_psicologo_to_seleciona_horario"
-            app:destination="@id/seleciona_horario" />
+            app:destination="@id/seleciona_horario"
+            app:popUpTo="@id/seleciona_psicologo"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -101,6 +106,13 @@
         <argument
             android:name="psicologo"
             app:argType="com.amanda.poscovid.modelo.Psicologo" />
+        <argument
+            android:name="agendamento"
+            app:argType="com.amanda.poscovid.modelo.Agendamento"
+            app:nullable="true" />
+        <argument
+            android:name="isPsicologo"
+            app:argType="boolean" />
     </fragment>
 
     <fragment
