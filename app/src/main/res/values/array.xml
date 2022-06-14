@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="dias">
-        <item>Domindo</item>
+        <item>Domingo</item>
         <item>Segunda-Feira</item>
         <item>Terça-Feira</item>
         <item>Quarta-Feira</item>
