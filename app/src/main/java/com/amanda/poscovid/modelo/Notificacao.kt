@@ -7,4 +7,6 @@ import java.io.Serializable
 class Notificacao : Serializable {
     var id: String? = String()
     var mensagem: String? = String()
+    var psicologoId: String? = String()
+    var pacienteId: String? = String()
 }

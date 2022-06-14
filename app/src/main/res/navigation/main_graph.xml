@@ -71,7 +71,7 @@
         android:id="@+id/cadastrar_psicologo"
         android:name="com.amanda.poscovid.ui.fragment.saude.CadastrarPsicologoFragment"
         android:label="@string/cadastrar_psicologo"
-        tools:layout="@layout/fragment_cadastrar_psicologo"/>
+        tools:layout="@layout/fragment_cadastrar_psicologo" />
 
     <fragment
         android:id="@+id/agenda_paciente"
@@ -131,5 +131,21 @@
             android:name="dia"
             app:argType="integer" />
     </dialog>
+
+    <fragment
+        android:id="@+id/notificacoes"
+        android:name="com.amanda.poscovid.ui.fragment.NotificacoesFragment"
+        android:label="@string/notificacoes"
+        tools:layout="@layout/fragment_notificacoes">
+        <action
+            android:id="@+id/action_notificacoes_to_agenda_paciente"
+            app:destination="@id/agenda_paciente"
+            app:popUpTo="@id/notificacoes"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_global_notificacoes"
+        app:destination="@id/notificacoes" />
 
 </navigation>

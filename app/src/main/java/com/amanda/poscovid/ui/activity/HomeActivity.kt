@@ -8,6 +8,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -23,6 +24,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var navController: NavController
     private lateinit var binding: ActivityHomeBinding
     private val userPreference by inject<IUserPreferenceHelper>()
     private val tokenPreference by inject<ITokenPreferenceHelper>()
@@ -36,7 +38,7 @@ class HomeActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.appBarHome.toolbar)
 
-        val navController = findNavController(R.id.nav_host_fragment_content_home)
+        navController = findNavController(R.id.nav_host_fragment_content_home)
         appBarConfiguration = AppBarConfiguration(setOf(R.id.home, R.id.nav_agenda, R.id.nav_logoff, R.id.nav_login), binding.drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.navView.setNavigationItemSelectedListener {
@@ -104,6 +106,7 @@ class HomeActivity : AppCompatActivity() {
         notificacaoItem = menu.findItem(R.id.menu_notificacao)
         notificacaoItem.setOnMenuItemClickListener {
             viewModel.notificacoesLidas()
+            navController.navigate(R.id.action_global_notificacoes)
             true
         }
         validMenuItem()
