@@ -35,6 +35,10 @@ class PsicologoWebClient(manager: ITokenPreferenceHelper, private val userManage
         service.salvaHorarios(bearerToken(), postHorario).executaRequest(retorno)
     }
 
+    fun deletaHorario(horarioId: String, retorno: (RespostaWebClient<Void>?) -> Unit) {
+        service.deletaHorario(bearerToken(), horarioId).executaRequest(retorno)
+    }
+
     fun getAgendamentos(retorno: (RespostaWebClient<List<Agendamento>>?) -> Unit) {
         service.buscaAgendamentos(bearerToken(), userManager.psicologoId).executaRequest(retorno)
     }

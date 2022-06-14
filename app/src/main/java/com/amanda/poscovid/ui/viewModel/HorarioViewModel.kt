@@ -32,4 +32,14 @@ class HorarioViewModel(private val client: PsicologoWebClient) : ViewModel() {
         }
         return liveData
     }
+
+    fun deletaHorario(horario: Horario): LiveData<RespostaWebClient<Void>?> {
+        val liveData = MutableLiveData<RespostaWebClient<Void>?>()
+        isLoading.value = true
+        client.deletaHorario(horario.id ?: "") { resposta ->
+            isLoading.postValue(false)
+            liveData.postValue(resposta)
+        }
+        return liveData
+    }
 }

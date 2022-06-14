@@ -5,11 +5,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.amanda.poscovid.R
+import com.amanda.poscovid.modelo.Horario
 import com.amanda.poscovid.ui.adapter.viewholder.EditaHorarioViewHolder
 
 class EditaHorarioAdapter(private val context: Context?) : RecyclerView.Adapter<EditaHorarioViewHolder>() {
 
-    val horarios: MutableList<String> = mutableListOf()
+    val horarios: MutableList<Horario> = mutableListOf()
+    var deleteListener: ((Horario) -> Unit) = { }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EditaHorarioViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.list_item_horario, parent, false)
@@ -22,25 +24,16 @@ class EditaHorarioAdapter(private val context: Context?) : RecyclerView.Adapter<
     }
 
     override fun onBindViewHolder(holder: EditaHorarioViewHolder, position: Int) {
-        holder.bind(horarios[position], position) {
-            horarios.removeAt(position)
-            atualizaAdapter()
-        }
+        holder.bind(horarios[position], deleteListener)
     }
 
-    fun atualizaLista(lista: List<String>) {
+    fun atualizaLista(lista: List<Horario>) {
         this.horarios.clear()
         this.horarios.addAll(lista)
         atualizaAdapter()
     }
 
-    fun addItem(item: String) {
-        this.horarios.add(item)
-        atualizaAdapter()
-    }
-
     private fun atualizaAdapter() {
-        this.horarios.sort()
         notifyDataSetChanged()
     }
 }

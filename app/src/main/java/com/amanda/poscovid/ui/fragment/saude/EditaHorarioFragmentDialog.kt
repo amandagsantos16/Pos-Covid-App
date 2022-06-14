@@ -1,6 +1,5 @@
 package com.amanda.poscovid.ui.fragment.saude
 
-import android.app.DatePickerDialog
 import android.app.ProgressDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
@@ -13,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.amanda.poscovid.R
 import com.amanda.poscovid.databinding.DialogEditaHorarioBinding
+import com.amanda.poscovid.modelo.Horario
 import com.amanda.poscovid.ui.adapter.list.EditaHorarioAdapter
 import com.amanda.poscovid.ui.viewModel.HorarioViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -44,14 +44,24 @@ class EditaHorarioFragmentDialog : DialogFragment() {
 
     private fun configuraAdapter() {
         binding.editaHorarioRecyclerView.adapter = adapter
+        adapter.deleteListener = {
+            deletaHorario(it)
+        }
+    }
+
+    private fun deletaHorario(horario: Horario) {
+        viewModel.deletaHorario(horario).observe(viewLifecycleOwner) {
+            it?.apply {
+                detalhes?.let {
+                    mostrarAlerta(detalhes.error ?: String())
+                } ?: buscaHorariosCadastrados()
+            } ?: mostrarAlerta(getString(R.string.erro_padrao_api))
+        }
     }
 
     private fun configuraClicks() {
         binding.editaHorarioFechar.setOnClickListener {
             fechaDialog()
-        }
-        binding.editaHorarioSalvar.setOnClickListener {
-            salvarHorarios()
         }
         binding.editaHorarioAdicionar.setOnClickListener {
             val calendar = Calendar.getInstance()
@@ -60,30 +70,39 @@ class EditaHorarioFragmentDialog : DialogFragment() {
             TimePickerDialog(requireContext(), { _, h, m ->
                 val stringHora = if (h < 10) "0$h" else "$h"
                 val stringMinuto = if (m < 10) "0$m" else "$m"
-                adapter.addItem("$stringHora:$stringMinuto")
+                addHorario("$stringHora:$stringMinuto")
             }, hora, minuto, true).show()
         }
     }
 
-    private fun buscaHorariosCadastrados() {
-        viewModel.getHorariosCadastrados(dia).observe(viewLifecycleOwner) {
-
-        }
-    }
-
-    private fun salvarHorarios() {
-        viewModel.salvaHorarios(dia, adapter.horarios).observe(viewLifecycleOwner) {
+    private fun addHorario(horario: String) {
+        viewModel.salvaHorarios(dia, listOf(horario)).observe(viewLifecycleOwner) {
             it?.apply {
                 dados?.let {
-                    mostrarAlerta("Horários salvos com sucesso!") {
-                        fechaDialog()
-                    }
+                    buscaHorariosCadastrados()
                 }
                 detalhes?.let {
                     mostrarAlerta(detalhes.error ?: String())
                 }
             } ?: mostrarAlerta(getString(R.string.erro_padrao_api))
         }
+    }
+
+    private fun buscaHorariosCadastrados() {
+        viewModel.getHorariosCadastrados(dia).observe(viewLifecycleOwner) {
+            it?.apply {
+                dados?.let {
+                    atualizaAdapter(it)
+                }
+                detalhes?.let {
+                    mostrarAlerta(detalhes.error ?: String())
+                }
+            } ?: mostrarAlerta(getString(R.string.erro_padrao_api))
+        }
+    }
+
+    private fun atualizaAdapter(horarios: List<Horario>) {
+        adapter.atualizaLista(horarios)
     }
 
     private fun fechaDialog() {

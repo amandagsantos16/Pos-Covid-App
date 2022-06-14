@@ -31,6 +31,12 @@ interface PsicologoService {
         @Body postHorario: PostHorario
     ): Call<List<Horario>>
 
+    @DELETE("api/psicologos/horarios")
+    fun deletaHorario(
+        @Header("Authorization") authorization: String,
+        @Query("horarioId") horarioId: String
+    ): Call<Void>
+
     @GET("api/psicologos/agendamentos")
     fun buscaAgendamentos(
         @Header("Authorization") authorization: String,
