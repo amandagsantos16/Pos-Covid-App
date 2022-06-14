@@ -41,7 +41,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="start"
                         android:text="18/06/2022"
-                        android:textColor="@color/black"
+                        android:textColor="#454545"
                         android:textSize="18sp" />
 
                     <TextView
@@ -63,7 +63,7 @@
                 android:layout_marginTop="8dp"
                 android:gravity="start"
                 android:text="@string/titulo_agendamento"
-                android:textColor="@color/black"
+                android:textColor="#454545"
                 android:textSize="18sp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -77,12 +77,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_weight="1"
+                    android:background="?android:selectableItemBackground"
                     android:gravity="center"
                     android:padding="8dp"
                     android:text="@string/editar_horario"
-                    android:textColor="@color/black"
+                    android:textColor="#454545"
                     android:textSize="18sp"
-                    android:background="?android:selectableItemBackground"
                     app:drawableStartCompat="@drawable/ic_edit"
                     app:layout_constraintEnd_toStartOf="@id/agendamento_excluir"
                     app:layout_constraintStart_toStartOf="parent"
@@ -94,11 +94,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_weight="1"
+                    android:background="?android:selectableItemBackground"
                     android:gravity="center"
                     android:padding="8dp"
-                    android:background="?android:selectableItemBackground"
                     android:text="@string/excluir"
-                    android:textColor="@color/black"
+                    android:textColor="#454545"
                     android:textSize="18sp"
                     app:drawableStartCompat="@drawable/ic_delete"
                     app:layout_constraintEnd_toEndOf="parent"

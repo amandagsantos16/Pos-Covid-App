@@ -4,7 +4,11 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.amanda.poscovid.R
+import com.amanda.poscovid.extension.FULL_API_FORMAT
+import com.amanda.poscovid.extension.formatDate
+import com.amanda.poscovid.extension.formatToUi
 import com.amanda.poscovid.modelo.Agendamento
+import java.text.SimpleDateFormat
 
 class ConsultaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -15,9 +19,11 @@ class ConsultaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val editar = itemView.findViewById<TextView>(R.id.agendamento_editar)
         val deletar = itemView.findViewById<TextView>(R.id.agendamento_excluir)
 
+        val simpleDateFormat = SimpleDateFormat(FULL_API_FORMAT)
+
         titulo.text = itemView.context.getString(R.string.titulo_agendamento, agendamento.psicologo?.nome)
-        horario.text = agendamento.horario?.hora
-        data.text = agendamento.data
+        horario.text = simpleDateFormat.parse(agendamento.horario?.hora).formatDate()
+        data.text = simpleDateFormat.parse(agendamento.data).formatToUi()
         editar.setOnClickListener { editListener(agendamento) }
         deletar.setOnClickListener { deleteListener(agendamento) }
     }
