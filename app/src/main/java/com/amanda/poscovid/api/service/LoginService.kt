@@ -1,13 +1,11 @@
 package com.amanda.poscovid.api.service
 
 import com.amanda.poscovid.api.modelo.LoginRetorno
+import com.amanda.poscovid.modelo.Notificacao
 import com.amanda.poscovid.modelo.NovaConta
 import com.amanda.poscovid.modelo.UsuarioLogin
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface LoginService {
 
@@ -23,7 +21,8 @@ interface LoginService {
 
     @GET("api/notificacoes")
     fun buscaNotificacoes(
-        @Query("usuarioId") usuarioId: String
-    ): Call<List<Any>>
+        @Query("usuarioId") usuarioId: String,
+        @Header("Authorization") authorization: String
+    ): Call<List<Notificacao>>
 
 }

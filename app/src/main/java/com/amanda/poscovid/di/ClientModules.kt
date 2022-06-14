@@ -8,7 +8,7 @@ import org.koin.dsl.module
 
 val clientModules = module {
     single<CovidWebClient> { CovidWebClient() }
-    single<UsuarioWebClient> { UsuarioWebClient(get()) }
+    single<UsuarioWebClient> { UsuarioWebClient(get(), get()) }
     single<PsicologoWebClient> { PsicologoWebClient(get(), get()) }
     single<PacienteWebClient> { PacienteWebClient(get(), get()) }
 }
