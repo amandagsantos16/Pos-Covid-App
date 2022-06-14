@@ -17,26 +17,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatEditText
+    <com.santalu.maskara.widget.MaskEditText
         android:id="@+id/cadastrar_psicologo_nascimento"
         style="@style/LoginEditText"
         android:layout_width="0dp"
         android:layout_height="52dp"
         android:layout_marginTop="20dp"
         android:hint="@string/data_de_nascimento"
-        android:inputType="text"
+        android:inputType="number"
         android:maxLength="25"
+        app:mask="__/__/____"
         app:layout_constraintEnd_toEndOf="@id/cadastrar_psicologo_nome"
         app:layout_constraintStart_toStartOf="@id/cadastrar_psicologo_nome"
         app:layout_constraintTop_toBottomOf="@id/cadastrar_psicologo_nome" />
 
-    <androidx.appcompat.widget.AppCompatEditText
+    <com.santalu.maskara.widget.MaskEditText
         android:id="@+id/cadastrar_psicologo_crp"
         style="@style/LoginEditText"
         android:layout_width="0dp"
         android:layout_height="52dp"
         android:layout_marginTop="20dp"
         android:hint="@string/crp"
+        android:inputType="number"
+        app:mask="CRP-__/___-___"
         android:maxLength="25"
         app:layout_constraintEnd_toEndOf="@id/cadastrar_psicologo_nome"
         app:layout_constraintStart_toStartOf="@id/cadastrar_psicologo_nome"

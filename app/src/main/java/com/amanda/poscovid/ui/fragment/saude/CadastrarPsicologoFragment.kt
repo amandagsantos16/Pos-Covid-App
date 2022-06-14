@@ -2,6 +2,7 @@ package com.amanda.poscovid.ui.fragment.saude
 
 import android.app.ProgressDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,6 +45,7 @@ class CadastrarPsicologoFragment : BaseAppFragment() {
 
     private fun confguraBotaoEnviar() {
         binding.cadastrarPsicologoConfirmar.setOnClickListener {
+            getPsicologo()
             viewModel.cadastrarPsicologo(getPsicologo()).observe(viewLifecycleOwner) {
                 it?.apply {
                     dados?.let {
@@ -60,10 +62,12 @@ class CadastrarPsicologoFragment : BaseAppFragment() {
     }
 
     private fun getPsicologo(): CadastrarPsicologo {
+        val trim = binding.cadastrarPsicologoNascimento.text.toString().split("/")
+        val nascimento = "${trim[2]}/${trim[1]}/${trim[0]}"
         return CadastrarPsicologo().also {
             it.crp = binding.cadastrarPsicologoCrp.text.toString()
             it.especializacoes = binding.cadastrarPsicologoEspecializacao.text.toString()
-            it.dataNascimento = binding.cadastrarPsicologoNascimento.text.toString()
+            it.dataNascimento = nascimento
             it.nome = binding.cadastrarPsicologoNome.text.toString()
             it.resumo = binding.cadastrarPsicologoResumo.text.toString()
         }
