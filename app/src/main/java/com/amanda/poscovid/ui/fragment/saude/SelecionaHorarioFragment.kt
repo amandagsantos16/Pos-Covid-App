@@ -55,7 +55,7 @@ class SelecionaHorarioFragment : BaseAppFragment() {
     }
 
     private fun alterarAgendamento(horario: Horario) {
-        viewModel.alterarAgendamento(args.agendamento!!, horario, calendar.time.formatToApi()).observe(viewLifecycleOwner) {
+        viewModel.alterarAgendamento(args.agendamento!!, horario, calendar.time.formatToApi(), args.isPsicologo).observe(viewLifecycleOwner) {
             it?.apply {
                 detalhes?.let {
                     mostrarAlerta(detalhes.error ?: String())

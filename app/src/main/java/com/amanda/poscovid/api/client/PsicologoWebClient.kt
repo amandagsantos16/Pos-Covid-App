@@ -2,7 +2,9 @@ package com.amanda.poscovid.api.client
 
 import com.amanda.poscovid.api.modelo.HorarioDia
 import com.amanda.poscovid.api.modelo.PostHorario
+import com.amanda.poscovid.api.modelo.PutAgendamento
 import com.amanda.poscovid.api.modelo.RespostaWebClient
+import com.amanda.poscovid.modelo.Agendamento
 import com.amanda.poscovid.modelo.CadastrarPsicologo
 import com.amanda.poscovid.modelo.Horario
 import com.amanda.poscovid.modelo.Psicologo
@@ -31,5 +33,26 @@ class PsicologoWebClient(manager: ITokenPreferenceHelper, private val userManage
         postHorario.psicologoId = userManager.psicologoId
         postHorario.horarios = listOf(element)
         service.salvaHorarios(bearerToken(), postHorario).executaRequest(retorno)
+    }
+
+    fun getAgendamentos(retorno: (RespostaWebClient<List<Agendamento>>?) -> Unit) {
+        service.buscaAgendamentos(bearerToken(), userManager.psicologoId).executaRequest(retorno)
+    }
+
+    fun deletarAgendamento(agendamentoId: String, retorno: (RespostaWebClient<Void>?) -> Unit) {
+        service.deletarAgendamento(bearerToken(), agendamentoId).executaRequest(retorno)
+    }
+
+    fun confrmarAgendamento(agendamentoId: String, retorno: (RespostaWebClient<Void>?) -> Unit) {
+        service.confirmarAgendamento(bearerToken(), agendamentoId).executaRequest(retorno)
+    }
+
+    fun alterarAgendamento(agendamento: Agendamento, horario: Horario, data: String, retorno: (RespostaWebClient<Void>?) -> Unit) {
+        val putAgendamento = PutAgendamento().also {
+            it.data = data
+            it.horarioId = horario.id
+            it.id = agendamento.id
+        }
+        service.alterarAgendamento(bearerToken(), putAgendamento).executaRequest(retorno)
     }
 }

@@ -32,7 +32,9 @@ class AreaPsicologoFragment : BaseAppFragment() {
             )
         }
         binding.agenda.setOnClickListener {
-
+            navigateTo(
+                AreaPsicologoFragmentDirections.actionAreaPsicologoToAgendaPsicologoFragment()
+            )
         }
     }
 }

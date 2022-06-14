@@ -11,4 +11,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="cinzaClaro">#ACACAC</color>
+    <color name="pendente">#FFB300</color>
+    <color name="confirmado">#43A047</color>
 </resources>

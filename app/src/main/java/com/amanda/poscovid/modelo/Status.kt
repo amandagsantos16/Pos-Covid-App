@@ -7,5 +7,5 @@ enum class Status(val status: Int) : Serializable {
     PENDENTE_PSICOLOGO(1),
     CONFIRMADO(2),
     CANCELADO(3),
-    CANCELADO_PACIENTE(4),
+    PENDENTE_PACIENTE(4),
 }

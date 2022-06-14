@@ -55,7 +55,7 @@
     <string name="agendar_sessao">Agendar sessão</string>
     <string name="horarios_cadastrados">Horários cadastrados</string>
     <string name="titulo_agendamento">Sessão com %s</string>
-    <string name="editar_horario">Editar horário</string>
+    <string name="editar_horario">Editar</string>
     <string name="excluir">Excluir</string>
     <string name="mensagem_agenda_vazia">Você não possui sessões agendadas</string>
     <string name="area_psicologo">Área do psicologo</string>
@@ -63,5 +63,6 @@
     <string name="salvar">Salvar alterações</string>
     <string name="adicionar_horário">Incluir horário</string>
     <string name="psicologo_sem_horario_para_o_dia">Psicologo não possui horário dísponivel para esse dia</string>
+    <string name="confirmar_sessao">Confirmar</string>
 
 </resources>

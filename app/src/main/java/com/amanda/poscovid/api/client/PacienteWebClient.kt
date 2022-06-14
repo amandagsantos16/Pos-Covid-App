@@ -44,6 +44,10 @@ class PacienteWebClient(tokenManager: ITokenPreferenceHelper, private val userMa
         service.alterarAgendamento(bearerToken(), putAgendamento).executaRequest(retorno)
     }
 
+    fun confrmarAgendamento(agendamentoId: String, retorno: (RespostaWebClient<Void>?) -> Unit) {
+        service.confirmarAgendamento(bearerToken(), agendamentoId).executaRequest(retorno)
+    }
+
     fun deletarAgendamento(agendamentoId: String, retorno: (RespostaWebClient<Void>?) -> Unit) {
         service.deletarAgendamento(bearerToken(), agendamentoId).executaRequest(retorno)
     }

@@ -30,9 +30,10 @@
                     app:srcCompat="@drawable/ic_time" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
+                    android:layout_weight="1"
                     android:orientation="vertical">
 
                     <TextView
@@ -54,6 +55,18 @@
 
                 </LinearLayout>
 
+                <TextView
+                    android:id="@+id/agendamento_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/pendente"
+                    android:gravity="start"
+                    android:padding="4dp"
+                    android:text="Pendente"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
             </LinearLayout>
 
             <TextView
@@ -72,12 +85,31 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/agendamento_confirmar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:background="?android:selectableItemBackground"
+                    android:drawableTint="@color/confirmado"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="@string/confirmar_sessao"
+                    android:textColor="#454545"
+                    android:textSize="18sp"
+                    app:drawableStartCompat="@drawable/ic_done"
+                    app:layout_constraintEnd_toStartOf="@id/agendamento_editar"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
                     android:id="@+id/agendamento_editar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_weight="1"
                     android:background="?android:selectableItemBackground"
+                    android:drawableTint="@color/pendente"
                     android:gravity="center"
                     android:padding="8dp"
                     android:text="@string/editar_horario"
@@ -85,7 +117,7 @@
                     android:textSize="18sp"
                     app:drawableStartCompat="@drawable/ic_edit"
                     app:layout_constraintEnd_toStartOf="@id/agendamento_excluir"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/agendamento_confirmar"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -95,6 +127,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_weight="1"
                     android:background="?android:selectableItemBackground"
+                    android:drawableTint="#E53935"
                     android:gravity="center"
                     android:padding="8dp"
                     android:text="@string/excluir"

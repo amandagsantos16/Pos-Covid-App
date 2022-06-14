@@ -36,7 +36,9 @@ class NotificacoesFragment : BaseAppFragment() {
                 )
             }
             if (it.psicologoId == userPreference.psicologoId) {
-
+                navigateTo(
+                    NotificacoesFragmentDirections.actionNotificacoesToAgendaPsicologoFragment()
+                )
             }
         }
         binding.recyclerView.adapter = adapter

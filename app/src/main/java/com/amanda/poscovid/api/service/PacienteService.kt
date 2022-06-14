@@ -40,6 +40,12 @@ interface PacienteService {
         @Query("usuarioId") pacienteId: String
     ): Call<List<Psicologo>>
 
+    @POST("api/pacientes/agendamentos/confirmacao")
+    fun confirmarAgendamento(
+        @Header("Authorization") authorization: String,
+        @Query("agendamentoId") agendamentoId: String
+    ): Call<Void>
+
     @GET("api/psicologos/horarios-por-data")
     fun buscaHorariosDisponiveis(
         @Header("Authorization") authorization: String,

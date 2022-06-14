@@ -13,14 +13,14 @@ import com.amanda.poscovid.databinding.FragmentAgendaPacienteBinding
 import com.amanda.poscovid.modelo.Agendamento
 import com.amanda.poscovid.ui.adapter.list.AgendaAdapter
 import com.amanda.poscovid.ui.fragment.BaseAppFragment
-import com.amanda.poscovid.ui.viewModel.AgendaPacienteViewModel
+import com.amanda.poscovid.ui.viewModel.AgendaPsicologoViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class AgendaPacienteFragment : BaseAppFragment() {
+class AgendaPsicologoFragment : BaseAppFragment() {
 
     private lateinit var binding: FragmentAgendaPacienteBinding
-    private val viewModel by viewModel<AgendaPacienteViewModel>()
-    private val adapter by lazy { AgendaAdapter(context, false) }
+    private val viewModel by viewModel<AgendaPsicologoViewModel>()
+    private val adapter by lazy { AgendaAdapter(context, true) }
     private val progressDialog by lazy { ProgressDialog(context, ProgressDialog.STYLE_HORIZONTAL) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -91,16 +91,8 @@ class AgendaPacienteFragment : BaseAppFragment() {
 
     private fun editarHorario(agendamento: Agendamento) {
         navigateTo(
-            AgendaPacienteFragmentDirections.actionAgendaPacienteToSelecionaHorario(agendamento.psicologo!!, agendamento, false)
+            AgendaPsicologoFragmentDirections.actionAgendaPsicologoFragmentToSelecionaHorario(agendamento.psicologo!!, agendamento, true)
         )
-    }
-
-    private fun configuraFab() {
-        binding.agendaPacienteFab.setOnClickListener {
-            navigateTo(
-                AgendaPacienteFragmentDirections.actionAgendaPacienteToSelecionaPsicologo()
-            )
-        }
     }
 
     private fun confirmar(agendamento: Agendamento) {
@@ -111,6 +103,10 @@ class AgendaPacienteFragment : BaseAppFragment() {
                 } ?: atualizaLista()
             } ?: mostrarAlerta(getString(R.string.erro_padrao_api))
         }
+    }
+
+    private fun configuraFab() {
+        binding.agendaPacienteFab.isVisible = false
     }
 
     private fun configuraProgress() {

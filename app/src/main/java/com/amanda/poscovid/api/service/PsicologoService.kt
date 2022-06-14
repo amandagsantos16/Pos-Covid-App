@@ -1,6 +1,8 @@
 package com.amanda.poscovid.api.service
 
 import com.amanda.poscovid.api.modelo.PostHorario
+import com.amanda.poscovid.api.modelo.PutAgendamento
+import com.amanda.poscovid.modelo.Agendamento
 import com.amanda.poscovid.modelo.CadastrarPsicologo
 import com.amanda.poscovid.modelo.Horario
 import com.amanda.poscovid.modelo.Psicologo
@@ -28,4 +30,28 @@ interface PsicologoService {
         @Header("Authorization") authorization: String,
         @Body postHorario: PostHorario
     ): Call<List<Horario>>
+
+    @GET("api/psicologos/agendamentos")
+    fun buscaAgendamentos(
+        @Header("Authorization") authorization: String,
+        @Query("psicologoId") pacienteId: String
+    ): Call<List<Agendamento>>
+
+    @DELETE("api/psicologos/agendamentos")
+    fun deletarAgendamento(
+        @Header("Authorization") authorization: String,
+        @Query("agendamentoId") agendamentoId: String
+    ): Call<Void>
+
+    @POST("api/psicologos/agendamentos/confirmacao")
+    fun confirmarAgendamento(
+        @Header("Authorization") authorization: String,
+        @Query("agendamentoId") agendamentoId: String
+    ): Call<Void>
+
+    @PUT("api/psicologos/agendamentos")
+    fun alterarAgendamento(
+        @Header("Authorization") authorization: String,
+        @Body agendamento: PutAgendamento
+    ): Call<Void>
 }

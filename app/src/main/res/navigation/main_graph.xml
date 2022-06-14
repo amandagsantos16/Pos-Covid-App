@@ -133,6 +133,9 @@
         <action
             android:id="@+id/action_area_psicologo_to_horario_cadastrados"
             app:destination="@id/horario_cadastrados" />
+        <action
+            android:id="@+id/action_area_psicologo_to_agendaPsicologoFragment"
+            app:destination="@id/agendaPsicologoFragment" />
     </fragment>
 
     <dialog
@@ -154,10 +157,23 @@
             app:destination="@id/agenda_paciente"
             app:popUpTo="@id/notificacoes"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_notificacoes_to_agendaPsicologoFragment"
+            app:destination="@id/agendaPsicologoFragment" />
     </fragment>
 
     <action
         android:id="@+id/action_global_notificacoes"
         app:destination="@id/notificacoes" />
+
+    <fragment
+        android:id="@+id/agendaPsicologoFragment"
+        tools:layout="@layout/fragment_agenda_paciente"
+        android:name="com.amanda.poscovid.ui.fragment.saude.AgendaPsicologoFragment"
+        android:label="@string/agenda" >
+        <action
+            android:id="@+id/action_agendaPsicologoFragment_to_seleciona_horario"
+            app:destination="@id/seleciona_horario" />
+    </fragment>
 
 </navigation>
