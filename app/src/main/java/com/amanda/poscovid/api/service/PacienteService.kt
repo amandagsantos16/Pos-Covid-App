@@ -21,6 +21,12 @@ interface PacienteService {
         @Body agendamento: PostAgendamento
     ): Call<Any>
 
+    @DELETE("api/pacientes/agendamentos")
+    fun deletarAgendamento(
+        @Header("Authorization") authorization: String,
+        @Query("agendamentoId") agendamentoId: String
+    ): Call<Void>
+
     @GET("api/psicologos")
     fun buscaTodosPsicologos(
         @Header("Authorization") authorization: String,

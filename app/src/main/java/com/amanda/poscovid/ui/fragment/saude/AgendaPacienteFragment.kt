@@ -77,7 +77,13 @@ class AgendaPacienteFragment : BaseAppFragment() {
     }
 
     private fun cancelarAgendamento(agendamento: Agendamento) {
-        //TODO
+        viewModel.cancelarAgendamento(agendamento.id ?: "").observe(viewLifecycleOwner) {
+            it?.apply {
+                detalhes?.let {
+                    mostrarAlerta(detalhes.error ?: String())
+                } ?: atualizaLista()
+            } ?: mostrarAlerta(getString(R.string.erro_padrao_api))
+        }
     }
 
     private fun editarHorario(agendamento: Agendamento) {

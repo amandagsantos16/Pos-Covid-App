@@ -22,4 +22,14 @@ class AgendaPacienteViewModel(private val client: PacienteWebClient) : ViewModel
         }
         return liveData
     }
+
+    fun cancelarAgendamento(agendamentoId : String) : LiveData<RespostaWebClient<Void>?> {
+        val liveData = MutableLiveData<RespostaWebClient<Void>?>()
+        isLoading.value = true
+        client.deletarAgendamento(agendamentoId) { resposta ->
+            isLoading.postValue(false)
+            liveData.postValue(resposta)
+        }
+        return liveData
+    }
 }
