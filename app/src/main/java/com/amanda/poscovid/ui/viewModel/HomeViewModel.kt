@@ -15,7 +15,7 @@ class HomeViewModel(private val client: UsuarioWebClient, private val preference
     fun atualizaNotificacoes() {
         client.buscaNotificacoes { resposta ->
             resposta?.dados?.let {
-                notificacoes.postValue(it)
+                notificacoes.postValue(it.reversed())
                 temNotificacao.value = it.size > preferences.notificacoes
             }
         }

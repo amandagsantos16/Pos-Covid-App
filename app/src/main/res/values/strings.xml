@@ -45,12 +45,12 @@
     <string name="resumo_profissional">Resumo profissional</string>
     <string name="especializacao">Especialização</string>
     <string name="enviar">Enviar</string>
-    <string name="cadastrar_psicologo">Cadastrar Psicologo</string>
+    <string name="cadastrar_psicologo">Cadastrar psicólogo</string>
     <string name="cadastrar_psicologo_dados_enviados">Seus dados foram enviados para avaliação e em breve você receberá um retorno</string>
     <string name="confirmar_senha_negrito"><b>Confirmar senha</b></string>
     <string name="erro_padrao_api">Desculpe, tente novamente mais tarde</string>
     <string name="horarios_agendados">Horários agendados</string>
-    <string name="seleciona_psicologo">Seleciona um psicologo</string>
+    <string name="seleciona_psicologo">Seleciona um psicólogo</string>
     <string name="horarios_disponiveis_para_o_dia">Horários disponíveis</string>
     <string name="agendar_sessao">Agendar sessão</string>
     <string name="horarios_cadastrados">Horários cadastrados</string>
@@ -58,7 +58,7 @@
     <string name="editar_horario">Editar</string>
     <string name="excluir">Excluir</string>
     <string name="mensagem_agenda_vazia">Você não possui sessões agendadas</string>
-    <string name="area_psicologo">Área do psicologo</string>
+    <string name="area_psicologo">Área do psicólogo</string>
     <string name="horarios_cadastrados_disponiveis">Horários cadastrados disponíveis</string>
     <string name="salvar">Salvar alterações</string>
     <string name="adicionar_horário">Incluir horário</string>

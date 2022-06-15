@@ -39,7 +39,7 @@ class HomeActivity : AppCompatActivity() {
         setSupportActionBar(binding.appBarHome.toolbar)
 
         navController = findNavController(R.id.nav_host_fragment_content_home)
-        appBarConfiguration = AppBarConfiguration(setOf(R.id.home, R.id.nav_agenda, R.id.nav_logoff, R.id.nav_login), binding.drawerLayout)
+        appBarConfiguration = AppBarConfiguration(setOf(R.id.home, R.id.nav_logoff, R.id.nav_login), binding.drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.navView.setNavigationItemSelectedListener {
             when (it.itemId) {
@@ -52,9 +52,6 @@ class HomeActivity : AppCompatActivity() {
                     tokenPreference.clearPrefs()
                     userPreference.clearPrefs()
                     recreate()
-                }
-                R.id.nav_agenda -> {
-
                 }
             }
             false
@@ -93,7 +90,6 @@ class HomeActivity : AppCompatActivity() {
 
     private fun setNavMenu() {
         binding.navView.menu.let { menu ->
-            menu.findItem(R.id.nav_agenda)?.isVisible = isLoagado()
             menu.findItem(R.id.nav_logoff)?.isVisible = isLoagado()
             menu.findItem(R.id.nav_login)?.isVisible = !isLoagado()
         }
